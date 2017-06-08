@@ -21,9 +21,7 @@ namespace Ambrosium.Models
         public int utilizador { get; set; }
         public int Sugestão_id { get; set; }
     
-        public virtual Produto Produto { get; set; }
         public virtual Regime Regime1 { get; set; }
-        public virtual Sugestão Sugestão { get; set; }
         public virtual Utilizador Utilizador1 { get; set; }
     }
 }

@@ -22,7 +22,6 @@ namespace Ambrosium.Models
         public int estabelecimento { get; set; }
     
         public virtual Estabelecimento Estabelecimento1 { get; set; }
-        public virtual Sugestão Sugestão { get; set; }
         public virtual Utilizador Utilizador1 { get; set; }
     }
 }
