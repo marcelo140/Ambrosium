@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ambrosium</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="icon" type="image/png" href="../assets/img/icon.png">
+	<link rel="stylesheet" type="text/css" href="../assets/css/files.css">
+	<script  type="text/javascript" href="../assets/js/modal.js"></script>
+	<meta charset="UTF-8">
+
+</head>
+<body class="color1">
+
+<!--Navbar -->
+
+	<div class="navbar">
+		<div class="navbar-logo col-sm-2" >
+			<div class ="nav-circle">
+				<img class="navbar-img" alt="logo" src="../assets/img/icon.png"/>
+			</div>
+		</div>
+
+		<div class="navbar-container">
+	  		<a href="../home/index.html">Home</a>
+	  		<a href="#Register">Register</a>
+	  		<a href="../login/index.html">Login</a>
+	  		
+	  	</div>
+	</div>
+
+
+<!-- Main -->
+
+	<div class="search-container col-md-10">
+		<form action="../results/index.html">
+			<div class="col-sm-offset-1 col-sm-5 search-text">
+				<div class="banner-title-container">
+					<div class="input-banner col-sm-offset-2">
+						<div class="input-group input-border">
+							<input id="transcript" type="text" class="text-recon" placeholder="Procurar" required>
+						    <span class="input-group-btn">
+						    	<button class="btn btn-secondary submit-recon" type="submit" href="../search-results/index.html">
+						    		<i class="fa fa-search" aria-hidden="true"></i>
+						    	</button>
+						    </span>
+						    <span class="input-group-btn">
+						    	<button class="btn btn-secondary submit-recon" type="button" onclick="startDictation()">
+						    		<i class="fa fa-microphone" aria-hidden="true"></i>
+						    	</button>
+						    </span>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</form>
+
+		<select class=" col-sm-offset-1 col-sm-2 select-dropdown">
+			<option class="drop-text" value="None">Sort By</option>
+			<option class="drop-text" value="Qualidade">Qualidade</option>
+			<option class="drop-text" value="Classificação">Classificação</option>
+			<option class="drop-text" value="Distancia">Distancia</option>
+		</select>
+		<div class="col-sm-offset-1 col-sm-2 checkbox-pref">
+			<input class="col-sm-2" type="checkbox" name="preferences" value="Bike">
+			<div class="col-sm-8">
+				Ignorar Preferencias
+			</div>
+		</div>
+	</div>
+
+
+
+<!--Div exemplo de 1 restaurante-->
+<div class="search-result col-sm-offset-2 col-sm-8">
+	<div class="search-div col-sm-4">
+		<div class="search-title">
+			Taberna Belga
+		</div>
+		<div class="search-desc col-sm-offset-1">
+			<b>Ingredientes:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ante magna, faucibus et erat eu, laoreet placerat mi.
+		</div>
+	</div>
+	<div class="search-div col-sm-4">
+		<div class="search-dist">
+		Distancia: &emsp;  <b>  2.1km </b>
+		</div>
+		<div class="rating col-sm-12">
+			Rating &emsp;
+		
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star-o" aria-hidden="true"></i>
+		
+		</div>
+	</div>
+	<div class="search-div col-md-4">
+	<img class="search-pic" src="../assets/img/icon.png" />
+	</div>
+</div>
+
+<!--Div exemplo de 1 restaurante-->
+<div class="search-result col-sm-offset-2 col-sm-8">
+	<div class="search-div col-sm-4">
+		<div class="search-title">
+			Taberna Belga
+		</div>
+		<div class="search-desc col-sm-offset-1">
+			<b>Ingredientes:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ante magna, faucibus et erat eu, laoreet placerat mi.
+		</div>
+	</div>
+	<div class="search-div col-sm-4">
+		<div class="search-dist">
+		Distancia: &emsp;  <b>  2.1km </b>
+		</div>
+		<div class="rating col-sm-12">
+			Rating &emsp;
+		
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star-o" aria-hidden="true"></i>
+		
+		</div>
+	</div>
+	<div class="search-div col-md-4">
+	<img class="search-pic" src="../assets/img/icon.png" />
+	</div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+function startDictation() {
+
+	if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+  		var recognition = new webkitSpeechRecognition();
+
+  		recognition.continuous = false;
+  		recognition.interimResults = false;
+
+  		recognition.lang = "pt-PT";
+  		recognition.start();
+
+  		recognition.onresult = function(e) {
+    		document.getElementById('transcript').value
+            	                 = e.results[0][0].transcript;
+    		recognition.stop();
+    		document.getElementById('labnol').submit();
+  		};
+
+  		recognition.onerror = function(e) {
+    		recognition.stop();
+		}
+
+	}
+}
+</script>
+
+
+
+<!-- Footer -->
+	<footer class="col-sm-12">
+		<div class="footer-container col-sm-offset-3 col-sm-4">
+			<h3 >Contactos</h3>
+	  		<a> autoDeligths@di.uminho.pt</a>
+	  		</br>
+	  		<a>Onde nos encontrar</a>
+	  	</div>
+	  	<div class="footer-container col-sm-4 rigth">
+			
+			<h3 >Links uteis </h3>
+	  		<a> FAQ</a>
+	  		</br>
+	  		<a>Equipa</a>
+	  	</div>
+
+	</footer>
+
+
+
+</body>
+</html>

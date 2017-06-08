@@ -13,7 +13,7 @@ namespace Ambrosium.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Registar()
         {
             ViewBag.Message = "Your application description page.";
 
