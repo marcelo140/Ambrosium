@@ -17,15 +17,12 @@ namespace Ambrosium.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ingrediente()
         {
-            this.Sugestao_Ingrediente = new HashSet<Sugestao_Ingrediente>();
             this.Produto = new HashSet<Produto>();
             this.Utilizador = new HashSet<Utilizador>();
         }
     
         public string nome { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sugestao_Ingrediente> Sugestao_Ingrediente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Produto> Produto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

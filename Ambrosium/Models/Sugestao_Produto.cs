@@ -19,8 +19,9 @@ namespace Ambrosium.Models
         public System.DateTime data { get; set; }
         public string regime { get; set; }
         public int utilizador { get; set; }
-        public int Sugestão_id { get; set; }
+        public int produto { get; set; }
     
+        public virtual Produto Produto1 { get; set; }
         public virtual Regime Regime1 { get; set; }
         public virtual Utilizador Utilizador1 { get; set; }
     }

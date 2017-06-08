@@ -18,6 +18,7 @@ namespace Ambrosium.Models
         public Produto()
         {
             this.Avaliacao = new HashSet<Avaliacao>();
+            this.Sugestao_Produto = new HashSet<Sugestao_Produto>();
             this.Ingrediente = new HashSet<Ingrediente>();
         }
     
@@ -32,6 +33,8 @@ namespace Ambrosium.Models
         public virtual ICollection<Avaliacao> Avaliacao { get; set; }
         public virtual Estabelecimento Estabelecimento1 { get; set; }
         public virtual Regime Regime1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sugestao_Produto> Sugestao_Produto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ingrediente> Ingrediente { get; set; }
     }

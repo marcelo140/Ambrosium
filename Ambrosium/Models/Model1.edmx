@@ -26,7 +26,6 @@
           <Property Name="telefone" Type="varchar" MaxLength="20" />
           <Property Name="rating" Type="float" />
           <Property Name="localizacao" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="imagem" Type="varchar" MaxLength="255" />
           <Property Name="ativo" Type="tinyint" Nullable="false" />
           <Property Name="sugestoes" Type="tinyint" Nullable="false" />
         </EntityType>
@@ -92,14 +91,6 @@
           <Property Name="utilizador" Type="int" Nullable="false" />
           <Property Name="estabelecimento" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Sugestao_Ingrediente">
-          <Key>
-            <PropertyRef Name="sugestao" />
-            <PropertyRef Name="ingrediente" />
-          </Key>
-          <Property Name="sugestao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ingrediente" Type="varchar" MaxLength="45" Nullable="false" />
-        </EntityType>
         <EntityType Name="Sugestao_Produto">
           <Key>
             <PropertyRef Name="id" />
@@ -109,7 +100,7 @@
           <Property Name="data" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="regime" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="utilizador" Type="int" Nullable="false" />
-          <Property Name="Sugestão_id" Type="int" Nullable="false" />
+          <Property Name="produto" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Utilizador">
           <Key>
@@ -170,7 +161,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Horario_Estabelecimento">
-          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1" />
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Estabelecimento">
@@ -230,7 +223,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Sugestao_Estabelecimento_Estabelecimento">
-          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1" />
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Sugestao_Estabelecimento" Type="Self.Sugestao_Estabelecimento" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Estabelecimento">
@@ -253,15 +248,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Sugestao_Ingrediente_Ingrediente">
-          <End Role="Ingrediente" Type="Self.Ingrediente" Multiplicity="1" />
-          <End Role="Sugestao_Ingrediente" Type="Self.Sugestao_Ingrediente" Multiplicity="*" />
+        <Association Name="fk_Sugestao_Produto_Produto">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sugestao_Produto" Type="Self.Sugestao_Produto" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Ingrediente">
-              <PropertyRef Name="nome" />
+            <Principal Role="Produto">
+              <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Sugestao_Ingrediente">
-              <PropertyRef Name="ingrediente" />
+            <Dependent Role="Sugestao_Produto">
+              <PropertyRef Name="produto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -335,7 +332,6 @@
           <EntitySet Name="Produto_Ingrediente" EntityType="Self.Produto_Ingrediente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Regime" EntityType="Self.Regime" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sugestao_Estabelecimento" EntityType="Self.Sugestao_Estabelecimento" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Sugestao_Ingrediente" EntityType="Self.Sugestao_Ingrediente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sugestao_Produto" EntityType="Self.Sugestao_Produto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Utilizador" EntityType="Self.Utilizador" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Utilizador_Ingrediente" EntityType="Self.Utilizador_Ingrediente" Schema="dbo" store:Type="Tables" />
@@ -379,9 +375,9 @@
             <End Role="Utilizador" EntitySet="Utilizador" />
             <End Role="Sugestao_Estabelecimento" EntitySet="Sugestao_Estabelecimento" />
           </AssociationSet>
-          <AssociationSet Name="fk_Sugestao_Ingrediente_Ingrediente" Association="Self.fk_Sugestao_Ingrediente_Ingrediente">
-            <End Role="Ingrediente" EntitySet="Ingrediente" />
-            <End Role="Sugestao_Ingrediente" EntitySet="Sugestao_Ingrediente" />
+          <AssociationSet Name="fk_Sugestao_Produto_Produto" Association="Self.fk_Sugestao_Produto_Produto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="Sugestao_Produto" EntitySet="Sugestao_Produto" />
           </AssociationSet>
           <AssociationSet Name="fk_Sugestao_Produto_Regime" Association="Self.fk_Sugestao_Produto_Regime">
             <End Role="Regime" EntitySet="Regime" />
@@ -432,7 +428,6 @@
           <Property Name="telefone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="rating" Type="Double" />
           <Property Name="localizacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="imagem" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="ativo" Type="Byte" Nullable="false" />
           <Property Name="sugestoes" Type="Byte" Nullable="false" />
           <NavigationProperty Name="Galeria" Relationship="Self.fk_Galeria_Estabelecimento" FromRole="Estabelecimento" ToRole="Galeria" />
@@ -467,7 +462,6 @@
             <PropertyRef Name="nome" />
           </Key>
           <Property Name="nome" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Sugestao_Ingrediente" Relationship="Self.fk_Sugestao_Ingrediente_Ingrediente" FromRole="Ingrediente" ToRole="Sugestao_Ingrediente" />
           <NavigationProperty Name="Produto" Relationship="Self.Produto_Ingrediente" FromRole="Ingrediente" ToRole="Produto" />
           <NavigationProperty Name="Utilizador" Relationship="Self.Utilizador_Ingrediente" FromRole="Ingrediente" ToRole="Utilizador" />
         </EntityType>
@@ -484,6 +478,7 @@
           <NavigationProperty Name="Avaliacao" Relationship="Self.fk_Avaliacao_Produto" FromRole="Produto" ToRole="Avaliacao" />
           <NavigationProperty Name="Estabelecimento1" Relationship="Self.fk_Produto_Estabelecimento" FromRole="Produto" ToRole="Estabelecimento" />
           <NavigationProperty Name="Regime1" Relationship="Self.fk_Produto_Regime" FromRole="Produto" ToRole="Regime" />
+          <NavigationProperty Name="Sugestao_Produto" Relationship="Self.fk_Sugestao_Produto_Produto" FromRole="Produto" ToRole="Sugestao_Produto" />
           <NavigationProperty Name="Ingrediente" Relationship="Self.Produto_Ingrediente" FromRole="Produto" ToRole="Ingrediente" />
         </EntityType>
         <EntityType Name="Regime">
@@ -508,15 +503,6 @@
           <NavigationProperty Name="Estabelecimento1" Relationship="Self.fk_Sugestao_Estabelecimento_Estabelecimento" FromRole="Sugestao_Estabelecimento" ToRole="Estabelecimento" />
           <NavigationProperty Name="Utilizador1" Relationship="Self.fk_Sugestao_Estabelecimento_Utilizador" FromRole="Sugestao_Estabelecimento" ToRole="Utilizador" />
         </EntityType>
-        <EntityType Name="Sugestao_Ingrediente">
-          <Key>
-            <PropertyRef Name="sugestao" />
-            <PropertyRef Name="ingrediente" />
-          </Key>
-          <Property Name="sugestao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ingrediente" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Ingrediente1" Relationship="Self.fk_Sugestao_Ingrediente_Ingrediente" FromRole="Sugestao_Ingrediente" ToRole="Ingrediente" />
-        </EntityType>
         <EntityType Name="Sugestao_Produto">
           <Key>
             <PropertyRef Name="id" />
@@ -526,7 +512,8 @@
           <Property Name="data" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="regime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="utilizador" Type="Int32" Nullable="false" />
-          <Property Name="Sugestão_id" Type="Int32" Nullable="false" />
+          <Property Name="produto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Produto1" Relationship="Self.fk_Sugestao_Produto_Produto" FromRole="Sugestao_Produto" ToRole="Produto" />
           <NavigationProperty Name="Regime1" Relationship="Self.fk_Sugestao_Produto_Regime" FromRole="Sugestao_Produto" ToRole="Regime" />
           <NavigationProperty Name="Utilizador1" Relationship="Self.fk_Sugestao_Produto_Utilizador" FromRole="Sugestao_Produto" ToRole="Utilizador" />
         </EntityType>
@@ -586,7 +573,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Horario_Estabelecimento">
-          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1" />
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Estabelecimento">
@@ -610,7 +599,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Sugestao_Estabelecimento_Estabelecimento">
-          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1" />
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Sugestao_Estabelecimento" Type="Self.Sugestao_Estabelecimento" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Estabelecimento">
@@ -618,18 +609,6 @@
             </Principal>
             <Dependent Role="Sugestao_Estabelecimento">
               <PropertyRef Name="estabelecimento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Sugestao_Ingrediente_Ingrediente">
-          <End Role="Ingrediente" Type="Self.Ingrediente" Multiplicity="1" />
-          <End Role="Sugestao_Ingrediente" Type="Self.Sugestao_Ingrediente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ingrediente">
-              <PropertyRef Name="nome" />
-            </Principal>
-            <Dependent Role="Sugestao_Ingrediente">
-              <PropertyRef Name="ingrediente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -642,6 +621,20 @@
             </Principal>
             <Dependent Role="Produto">
               <PropertyRef Name="regime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Produto_Produto">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sugestao_Produto" Type="Self.Sugestao_Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sugestao_Produto">
+              <PropertyRef Name="produto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -701,7 +694,7 @@
           <End Role="Ingrediente" Type="Self.Ingrediente" Multiplicity="*" />
           <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="ambrosium_bdEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ambrosium_bdEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Avaliacao" EntityType="Self.Avaliacao" />
           <EntitySet Name="Estabelecimento" EntityType="Self.Estabelecimento" />
           <EntitySet Name="Galeria" EntityType="Self.Galeria" />
@@ -710,7 +703,6 @@
           <EntitySet Name="Produto" EntityType="Self.Produto" />
           <EntitySet Name="Regime" EntityType="Self.Regime" />
           <EntitySet Name="Sugestao_Estabelecimento" EntityType="Self.Sugestao_Estabelecimento" />
-          <EntitySet Name="Sugestao_Ingrediente" EntityType="Self.Sugestao_Ingrediente" />
           <EntitySet Name="Sugestao_Produto" EntityType="Self.Sugestao_Produto" />
           <EntitySet Name="Utilizador" EntityType="Self.Utilizador" />
           <AssociationSet Name="fk_Avaliacao_Produto" Association="Self.fk_Avaliacao_Produto">
@@ -737,13 +729,13 @@
             <End Role="Estabelecimento" EntitySet="Estabelecimento" />
             <End Role="Sugestao_Estabelecimento" EntitySet="Sugestao_Estabelecimento" />
           </AssociationSet>
-          <AssociationSet Name="fk_Sugestao_Ingrediente_Ingrediente" Association="Self.fk_Sugestao_Ingrediente_Ingrediente">
-            <End Role="Ingrediente" EntitySet="Ingrediente" />
-            <End Role="Sugestao_Ingrediente" EntitySet="Sugestao_Ingrediente" />
-          </AssociationSet>
           <AssociationSet Name="fk_Produto_Regime" Association="Self.fk_Produto_Regime">
             <End Role="Regime" EntitySet="Regime" />
             <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Produto_Produto" Association="Self.fk_Sugestao_Produto_Produto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="Sugestao_Produto" EntitySet="Sugestao_Produto" />
           </AssociationSet>
           <AssociationSet Name="fk_Sugestao_Produto_Regime" Association="Self.fk_Sugestao_Produto_Regime">
             <End Role="Regime" EntitySet="Regime" />
@@ -775,7 +767,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ambrosium_bdModelStoreContainer" CdmEntityContainer="ambrosium_bdEntities1">
+        <EntityContainerMapping StorageEntityContainer="ambrosium_bdModelStoreContainer" CdmEntityContainer="ambrosium_bdEntities2">
           <EntitySetMapping Name="Avaliacao">
             <EntityTypeMapping TypeName="ambrosium_bdModel.Avaliacao">
               <MappingFragment StoreEntitySet="Avaliacao">
@@ -797,7 +789,6 @@
                 <ScalarProperty Name="telefone" ColumnName="telefone" />
                 <ScalarProperty Name="rating" ColumnName="rating" />
                 <ScalarProperty Name="localizacao" ColumnName="localizacao" />
-                <ScalarProperty Name="imagem" ColumnName="imagem" />
                 <ScalarProperty Name="ativo" ColumnName="ativo" />
                 <ScalarProperty Name="sugestoes" ColumnName="sugestoes" />
               </MappingFragment>
@@ -863,14 +854,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sugestao_Ingrediente">
-            <EntityTypeMapping TypeName="ambrosium_bdModel.Sugestao_Ingrediente">
-              <MappingFragment StoreEntitySet="Sugestao_Ingrediente">
-                <ScalarProperty Name="sugestao" ColumnName="sugestao" />
-                <ScalarProperty Name="ingrediente" ColumnName="ingrediente" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Sugestao_Produto">
             <EntityTypeMapping TypeName="ambrosium_bdModel.Sugestao_Produto">
               <MappingFragment StoreEntitySet="Sugestao_Produto">
@@ -879,7 +862,7 @@
                 <ScalarProperty Name="data" ColumnName="data" />
                 <ScalarProperty Name="regime" ColumnName="regime" />
                 <ScalarProperty Name="utilizador" ColumnName="utilizador" />
-                <ScalarProperty Name="Sugestão_id" ColumnName="Sugestão_id" />
+                <ScalarProperty Name="produto" ColumnName="produto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

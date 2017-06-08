@@ -29,7 +29,6 @@ namespace Ambrosium.Models
         public string telefone { get; set; }
         public Nullable<double> rating { get; set; }
         public string localizacao { get; set; }
-        public string imagem { get; set; }
         public byte ativo { get; set; }
         public byte sugestoes { get; set; }
     

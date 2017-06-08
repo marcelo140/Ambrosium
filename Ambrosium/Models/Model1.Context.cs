@@ -13,10 +13,10 @@ namespace Ambrosium.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ambrosium_bdEntities1 : DbContext
+    public partial class ambrosium_bdEntities2 : DbContext
     {
-        public ambrosium_bdEntities1()
-            : base("name=ambrosium_bdEntities1")
+        public ambrosium_bdEntities2()
+            : base("name=ambrosium_bdEntities2")
         {
         }
     
@@ -33,7 +33,6 @@ namespace Ambrosium.Models
         public virtual DbSet<Produto> Produto { get; set; }
         public virtual DbSet<Regime> Regime { get; set; }
         public virtual DbSet<Sugestao_Estabelecimento> Sugestao_Estabelecimento { get; set; }
-        public virtual DbSet<Sugestao_Ingrediente> Sugestao_Ingrediente { get; set; }
         public virtual DbSet<Sugestao_Produto> Sugestao_Produto { get; set; }
         public virtual DbSet<Utilizador> Utilizador { get; set; }
     }
