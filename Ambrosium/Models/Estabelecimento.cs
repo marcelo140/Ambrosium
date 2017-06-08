@@ -9,9 +9,13 @@
 
 namespace Ambrosium.Models
 {
+    using Newtonsoft.Json.Linq;
     using System;
     using System.Collections.Generic;
-    
+    using System.Globalization;
+    using System.IO;
+    using System.Net;
+
     public partial class Estabelecimento
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +26,77 @@ namespace Ambrosium.Models
             this.Produto = new HashSet<Produto>();
             this.Sugestao_Estabelecimento = new HashSet<Sugestao_Estabelecimento>();
         }
-    
+
+        public void load(string place_id)
+        {
+            WebRequest request = WebRequest.Create("https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyA_cNufnfv4_Mad0We1ZQZxWyHG6zE_x44");
+            WebResponse response = request.GetResponse();
+
+            Stream dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+            string content = reader.ReadToEnd();
+
+            JObject jEstabelecimento = JObject.Parse(content);
+
+            this.nome = (string)jEstabelecimento["result"]["name"];
+            this.localizacao = (string)jEstabelecimento["result"]["formatted_address"];
+            this.telefone = (string)jEstabelecimento["result"]["formatted_phone_number"];
+            this.rating = float.Parse((string)jEstabelecimento["result"]["rating"], CultureInfo.InvariantCulture.NumberFormat);
+
+            var jHorarios = jEstabelecimento["result"]["opening_hours"];
+            if (jHorarios != null)
+                this.SetHorarios(jHorarios["periods"]);
+        }
+
+        private void SetHorarios(JToken jHorarios)
+        {
+            bool[,] specified = new bool[7, 2];
+            Horario[] horarios = new Horario[7];
+            for (int i = 0; i < horarios.Length; i++)
+                horarios[i] = new Horario();
+
+            foreach (var item in jHorarios)
+            {
+                int close_day = int.Parse((string)item["close"]["day"]);
+                string close_time = (string)item["close"]["time"];
+                int close_hour = int.Parse(close_time.Substring(0, 2));
+                int close_minute = int.Parse(close_time.Substring(2, 2));
+
+                int open_day = int.Parse((string)item["open"]["day"]);
+                string open_time = (string)item["open"]["time"];
+                int open_hour = int.Parse(open_time.Substring(0, 2));
+                int open_minute = int.Parse(open_time.Substring(2, 2));
+
+                if (!specified[close_day, 0])
+                {
+                    horarios[close_day].fecho = new TimeSpan(close_hour, close_minute, 0);
+                    specified[close_day, 0] = true;
+                }
+                else
+                {
+                    horarios[close_day].fecho2 = new TimeSpan(close_hour, close_minute, 0);
+                }
+
+                if (!specified[open_day, 1])
+                {
+                    horarios[open_day].abertura = new TimeSpan(open_hour, open_minute, 0);
+                    specified[open_day, 1] = true;
+                }
+                else
+                {
+                    horarios[open_day].abertura2 = new TimeSpan(open_hour, open_minute, 0);
+                }
+
+                //foreach (Horario h in horarios)
+                //  this.Horario.Add(h);
+            }
+        }
+
+        private void SetAvaliacoes(JToken jAvaliacoes)
+        {
+
+        }
+
         public int id { get; set; }
         public string nome { get; set; }
         public string descricao { get; set; }
