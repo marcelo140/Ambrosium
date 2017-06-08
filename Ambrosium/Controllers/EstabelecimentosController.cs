@@ -37,12 +37,28 @@ namespace Ambrosium.Controllers
             return View(estabelecimento);
         }
 
+        //GET: Estabelecimentos/Menus/5
+        public ActionResult Menus(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Estabelecimento e = db.Estabelecimento.Find(id);
+            if (e == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(e);
+        }
+
+
         // GET: Estabelecimentos/Create
         public ActionResult Create()
         {
             return View();
         }
-
 
         public ActionResult Update()
         {
