@@ -12,6 +12,7 @@ namespace Ambrosium.Models
     using Newtonsoft.Json.Linq;
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Globalization;
     using System.IO;
     using System.Net;
@@ -50,10 +51,12 @@ namespace Ambrosium.Models
 
         private void SetHorarios(JToken jHorarios)
         {
-            bool[,] specified = new bool[7, 2];
             Horario[] horarios = new Horario[7];
             for (int i = 0; i < horarios.Length; i++)
+            {
                 horarios[i] = new Horario();
+                horarios[i].dia = i;
+            }
 
             foreach (var item in jHorarios)
             {
@@ -67,40 +70,26 @@ namespace Ambrosium.Models
                 int open_hour = int.Parse(open_time.Substring(0, 2));
                 int open_minute = int.Parse(open_time.Substring(2, 2));
 
-                if (!specified[close_day, 0])
-                {
+                if (horarios[close_day].fecho == null)
                     horarios[close_day].fecho = new TimeSpan(close_hour, close_minute, 0);
-                    specified[close_day, 0] = true;
-                }
                 else
-                {
                     horarios[close_day].fecho2 = new TimeSpan(close_hour, close_minute, 0);
-                }
 
-                if (!specified[open_day, 1])
-                {
+                if (horarios[open_day].abertura == null)
                     horarios[open_day].abertura = new TimeSpan(open_hour, open_minute, 0);
-                    specified[open_day, 1] = true;
-                }
                 else
-                {
                     horarios[open_day].abertura2 = new TimeSpan(open_hour, open_minute, 0);
-                }
-
-                //foreach (Horario h in horarios)
-                //  this.Horario.Add(h);
             }
-        }
 
-        private void SetAvaliacoes(JToken jAvaliacoes)
-        {
-
+            foreach (Horario h in horarios)
+                this.Horario.Add(h);
         }
 
         public int id { get; set; }
         public string nome { get; set; }
         public string descricao { get; set; }
         public string telefone { get; set; }
+        [DisplayFormat(DataFormatString = "{0:0.##}")]
         public Nullable<double> rating { get; set; }
         public string localizacao { get; set; }
         public byte ativo { get; set; }
