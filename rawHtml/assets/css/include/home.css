@@ -1,0 +1,201 @@
+.home-banner{
+	margin-top: 4%;
+	z-index: -1;
+	height: 70%;
+	position: absolute;
+	width: 100%;
+}
+
+.home-text{
+	margin-top: 100px;
+	margin-bottom: 100px;
+	height: 400px;
+}
+
+.text-recon{
+	background: transparent;
+	opacity: 1;
+	font-size: 30px;
+	outline:0;
+	height: 30px;
+	text-indent: 20px;
+	margin-top: 20px !important;
+	border:none !important;
+}
+
+.input-border{
+	border: 1px solid black;
+	border-radius: 1000px;
+	font-size: 30px;
+}
+
+.submit-recon{
+	background: transparent;
+	font-size: 30px;
+	border-radius: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+
+input::-webkit-input-placeholder {
+    color:    #fff;
+    opacity: 0.8;
+}
+
+input:-moz-placeholder {
+    color:    #fff;
+    opacity: 0.8;
+}
+
+input::-moz-placeholder {
+    color:    #fff;
+    opacity: 0.8;
+}
+
+input:-ms-input-placeholder {
+    color:    #fff;
+    opacity: 0.8;;
+}
+
+
+.home-img{
+	width: 100%;
+}
+
+.image1{
+	background-image:url("../../img/1.jpg");
+}
+
+.image2{
+	background-image:url("../../img/2.jpg");
+}
+
+.image3{
+	background-image:url("../../img/3.jpg");
+}
+
+.imageContainer{
+	width: 100%;
+	height: 530px;
+	background-attachment: fixed
+  	background-position: center center;
+  	background-repeat: none;
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	background-size: cover;
+  	-o-background-size: cover;
+    opacity: 0.5;
+
+}
+
+.imageContainer .title{
+	font-size: 100px;
+}
+
+.imageContainer .text{
+	font-size: 60px;
+}
+
+.banner-container{
+	padding-top: 5%;
+	text-align: center;
+	font-family: 'Oswald';
+}
+
+.banner-title-container{
+	margin-top: 30px;
+	font-size: 100px;
+	font-family: 'Oswald';
+	text-align: center;
+}
+
+
+.title-container{
+	margin-left: 5%;
+	margin-top: 30px;
+	font-size: 60px;
+	font-family: 'Oswald';
+}
+
+
+.about{
+	padding-top: 20px;
+	padding-bottom: 50px;
+}
+
+.about-content{
+	margin-top: 40px;
+}
+
+.about-container{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-size: 16px;
+}
+
+.about-pic{
+	max-width: 40%;
+}
+
+
+.advantages-container{
+	margin-top: 50px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.advantages-circle{
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	margin-left: 38%;
+}
+
+.advantages-pic{
+	margin-top: 40px;
+}
+
+.advantages-text{
+	margin-top: 15px;
+	margin-bottom: 50px;
+}
+
+.advantages-title{
+	font-family: 'Oswald';
+	margin-top: 15px;
+	font-size: 30px;
+}
+
+.circle2{
+	background-color: #00E012;
+}
+
+.circle1{
+	background-color: #ED0007;
+}
+
+.circle3{
+	background-color: #1600E0;
+}
+
+
+.login-container{
+	background-color: #333;
+	color:#333;
+}
+
+.login-title{
+	font-size: 30px;
+	font-family: 'Oswald';
+	color:#fff;
+}
+
+.login-text{
+	color: #fff;
+}
+
+.text-but{
+	font-size: 20px;
+	border-radius: 10px;
+}

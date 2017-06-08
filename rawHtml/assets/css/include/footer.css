@@ -1,0 +1,16 @@
+footer { 
+	display: block;
+    position: fixed; 
+    bottom: 0%; 
+    margin-bottom:0%;
+    border-top: 1px solid black;
+}
+
+.footer-container{
+	height: 100px;
+	margin-bottom: 20px;
+}
+
+.right{
+	float: right;
+}

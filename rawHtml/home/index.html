@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ambrosium</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="icon" type="image/png" href="../assets/img/icon.png">
+	<link rel="stylesheet" type="text/css" href="../assets/css/files.css">
+	<script  type="text/javascript" href="../assets/js/modal.js"></script>
+
+
+</head>
+<body class="color1">
+
+<!--Navbar -->
+
+	<div class="navbar">
+		<div class="navbar-logo col-sm-2" >
+			<div class ="nav-circle">
+				<img class="navbar-img" alt="logo" src="../assets/img/icon.png"/>
+			</div>
+		</div>
+
+		<div class="navbar-container">
+	  		<a href="../home/index.html">Home</a>
+	  		<a href="../register/index.html">Register</a>
+	  		<a onclick="document.getElementById('id01').style.display='block'">Login</a>
+	  		
+	  	</div>
+	</div>
+
+
+<!-- Main -->
+
+
+	<div class="home-banner">
+  	  	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	    	<!-- Indicators -->
+	    	<ol class="carousel-indicators">
+	      		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	      		<li data-target="#myCarousel" data-slide-to="1"></li>
+	      		<li data-target="#myCarousel" data-slide-to="2"></li>
+	    	</ol>
+
+	    	<!-- Wrapper for slides -->
+	    	<div class="carousel-inner">
+	      		<div class="item active">
+	      			<div class="imageContainer image1">
+	      				<div class="banner-container col-md-12"></div>
+	      			</div>
+	      		</div>
+
+	      		<div class="item">
+	        		<div class="imageContainer image2">
+	      				<div class="banner-container col-md-12"></div>
+	      			</div>
+	      		</div>
+	    
+	      		<div class="item">
+	        		<div class="imageContainer image3">
+	      				<div class="banner-container col-md-12"></div>
+	      			</div>
+	      		</div>
+	    	</div>
+	  	</div>
+	</div>
+
+<!-- Banner text -->
+
+	<form action="../results/index.html">
+		<div class="col-md-12 home-text">
+			<div class="banner-title-container">
+				<p>Ambrosium </p>
+				<div class="input-banner col-sm-offset-3 col-sm-6">
+					<div class="input-group input-border">
+						<input id="transcript" type="text" class="text-recon" placeholder="O que vamos experimentar hoje?" required>
+					    <span class="input-group-btn">
+					    	<button class="btn btn-secondary submit-recon" type="submit" href="../search-results/index.html">
+					    		<i class="fa fa-search" aria-hidden="true"></i>
+					    	</button>
+					    </span>
+					    <span class="input-group-btn">
+					    	<button class="btn btn-secondary submit-recon" type="button" onclick="startDictation()">
+					    		<i class="fa fa-microphone" aria-hidden="true"></i>
+					    	</button>
+					    </span>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</form>
+
+<!-- About -->
+
+
+	<div class="col-md-12 about">
+		<div class="title-container">
+			<p>Quem somos nós? </p>
+		</div>
+		<div class="about-content">
+			<div class="col-sm-4">
+				<img class="about-pic col-sm-offset-3" alt="Logo" src="../assets/img/icon.png"/>
+			</div>
+			<div class="about-container col-md-6">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ante magna, faucibus et erat eu, laoreet placerat mi. Vestibulum sed malesuada lacus. Praesent vel pretium purus. Fusce eget facilisis nibh. Integer risus nibh, iaculis ac vehicula at, venenatis eu tellus. Nunc egestas urna vitae purus tempus, dignissim fermentum enim interdum.
+				</p>
+			</div>
+		</div>
+	</div>
+
+<!-- Advantages -->
+
+
+	<div class="col-md-12 color2">
+		<div class="title-container">
+			<p>Vantagens </p>
+		</div>
+	
+		<div class="advantages-container">
+			<div class="col-md-4">
+				<div class="advantages-circle circle1">
+					<i class="fa fa-credit-card-alt fa-5x advantages-pic" aria-hidden="true"></i>
+				</div>
+					<div class=" col-md-12">
+						<div class="advantages-title">
+							Gratis
+						</div>
+						<div class="advantages-text col-md-offset-1">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ante magna, faucibus et erat eu, laoreet placerat mi. Vestibulum sed malesuada lacus. Praesent vel pretium purus. Fusce eget facilisis nibh.
+						</div>
+					</div>
+				</div>
+			<div class="col-md-4">
+				<div class="advantages-circle circle2">
+					<i class="fa fa-fast-forward fa-5x advantages-pic" aria-hidden="true"></i>
+				</div>
+				<div class=" col-md-12">
+						<div class="advantages-title">
+							Rapido
+						</div>
+						<div class="advantages-text col-md-offset-1">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ante magna, faucibus et erat eu, laoreet placerat mi. Vestibulum sed malesuada lacus. Praesent vel pretium purus. Fusce eget facilisis nibh.
+						</div>
+					</div>
+				</div>
+			<div class="col-md-4">
+				<div class="advantages-circle circle3">
+					<i class="fa fa-user-o fa-5x advantages-pic" aria-hidden="true"></i>
+				</div>
+				<div class=" col-md-12">
+						<div class="advantages-title">
+							Facil de usar
+						</div>
+						<div class="advantages-text col-md-offset-1">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ante magna, faucibus et erat eu, laoreet placerat mi. Vestibulum sed malesuada lacus. Praesent vel pretium purus. Fusce eget facilisis nibh.
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+<script>
+function startDictation() {
+
+	if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+  		var recognition = new webkitSpeechRecognition();
+
+  		recognition.continuous = false;
+  		recognition.interimResults = false;
+
+  		recognition.lang = "pt-PT";
+  		recognition.start();
+
+  		recognition.onresult = function(e) {
+    		document.getElementById('transcript').value
+            	                 = e.results[0][0].transcript;
+    		recognition.stop();
+    		document.getElementById('labnol').submit();
+  		};
+
+  		recognition.onerror = function(e) {
+    		recognition.stop();
+		}
+
+	}
+}
+</script>
+
+
+
+
+
+
+<!--think about this....-->
+
+
+
+<div id="id01" class="modal">
+  
+  	<form class="modal-content animate" action="/action_page.php">
+    
+		<div class="container col-sm-12 login-container">
+    		<p class="login-title col-sm-2">Login</p>
+
+    		<button type="button" class="col-sm-1" style="float: right;background-color: transparent;padding: 0px;" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+    			<i class="fa fa-times fa-3x" aria-hidden="true"></i>
+    		</button>
+
+    	</div>    
+		<div class="container col-sm-12 login-container">
+      		<div class="col-md-5">
+	    	  	<label class="login-text"><b>Username</b></label>
+	      		<input type="text" placeholder="Enter Username" name="uname" required>
+    		</div>
+    	</div>
+    	<div class="col-sm-12 login-container">
+      		<div class="col-md-5">
+		  		<label class="login-text"><b>Password</b></label>
+	      		<input type="password" placeholder="Enter Password" name="psw" required>
+      		</div>  
+      		<div class="col-sm-12 login-container">
+	      		<button class="col-sm-2 text-but" type="submit">Login</button>
+	      		<button type="button" class="col-sm-2  text-but" style="margin-left: 10px;background-color: red;" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+
+	      		<p  class="login-text col-sm-12"><input type="checkbox" checked="checked"> Remember me</p>
+    			<p class="col-sm-12"><span class="login-text psw">Forgot <a href="#">password?</a></span></p>
+    		</div>
+    	</div>
+  	</form>
+</div>
+
+
+<!-- Footer -->
+	<footer class="col-md-12">
+		<div class="footer-container col-md-offset-3 col-md-4">
+			<h3 >Contactos</h3>
+	  		<a> autoDeligths@di.uminho.pt</a>
+	  		</br>
+	  		<a>Onde nos encontrar</a>
+	  	</div>
+	  	<div class="footer-container col-md-4 rigth">
+			
+			<h3 >Links uteis </h3>
+	  		<a> FAQ</a>
+	  		</br>
+	  		<a>Equipa</a>
+	  	</div>
+
+	</footer>
+
+
+
+</body>
+</html>
