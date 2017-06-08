@@ -103,5 +103,41 @@ namespace Ambrosium.Models
         public virtual ICollection<Produto> Produto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sugestao_Estabelecimento> Sugestao_Estabelecimento { get; set; }
+
+        // Devolve a distancia de origins ao estabelecimento em questão em metros.
+        public int GetDistance(string origins)
+        {
+            return DistanceMatrix.GetDistanceValue(origins, this.localizacao);
+        }
+
+        // Devolve a distância de origins ao estabelecimento de maneira legível
+        public string GetDistancePrintable(string origins)
+        {
+            return DistanceMatrix.GetDistanceText(origins, this.localizacao);
+        }
+
+        public List<ISugestao> GetSugestoes()
+        {
+            List<ISugestao> ret = new List<ISugestao>();
+
+            foreach (Sugestao_Estabelecimento se in Sugestao_Estabelecimento)
+                ret.Add((ISugestao)se);
+
+            foreach (Produto p in Produto)
+                foreach (Sugestao_Produto sp in p.Sugestao_Produto)
+                    ret.Add((ISugestao)sp);
+
+            return ret;
+        }
+
+        public List<Produto> getProdutos(string product)
+        {
+            List<Produto> ret = new List<Models.Produto>();
+
+            foreach (Produto p in Produto)
+                if (p.nome.Contains(product)) ret.Add(p);
+
+            return ret;
+        }
     }
 }
