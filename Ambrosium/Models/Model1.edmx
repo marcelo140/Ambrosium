@@ -1,0 +1,1066 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ambrosium_bdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Avaliacao">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="rating" Type="int" Nullable="false" />
+          <Property Name="comentario" Type="varchar" MaxLength="45" />
+          <Property Name="data" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="produto" Type="int" Nullable="false" />
+          <Property Name="utilizador" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estabelecimento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="45" />
+          <Property Name="descricao" Type="varchar(max)" />
+          <Property Name="telefone" Type="varchar" MaxLength="20" />
+          <Property Name="rating" Type="float" />
+          <Property Name="localizacao" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="imagem" Type="varchar" MaxLength="255" />
+          <Property Name="ativo" Type="tinyint" Nullable="false" />
+          <Property Name="sugestoes" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Galeria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="path" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="estabelecimento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Horario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="dia" Type="int" Nullable="false" />
+          <Property Name="estabelecimento" Type="int" Nullable="false" />
+          <Property Name="abertura" Type="time" Precision="7" Nullable="false" />
+          <Property Name="fecho" Type="time" Precision="7" Nullable="false" />
+          <Property Name="abertura2" Type="time" Precision="7" />
+          <Property Name="fecho2" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Ingrediente">
+          <Key>
+            <PropertyRef Name="nome" />
+          </Key>
+          <Property Name="nome" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="imagem" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="estabelecimento" Type="int" Nullable="false" />
+          <Property Name="regime" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="ativo" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produto_Ingrediente">
+          <Key>
+            <PropertyRef Name="produto" />
+            <PropertyRef Name="ingrediente" />
+          </Key>
+          <Property Name="produto" Type="int" Nullable="false" />
+          <Property Name="ingrediente" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Regime">
+          <Key>
+            <PropertyRef Name="nome" />
+          </Key>
+          <Property Name="nome" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sugestão">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sugestao_Estabelecimento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="descricao" Type="varchar(max)" />
+          <Property Name="telefone" Type="varchar" MaxLength="20" />
+          <Property Name="data" Type="datetime2" Precision="7" />
+          <Property Name="utilizador" Type="int" Nullable="false" />
+          <Property Name="estabelecimento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sugestao_Ingrediente">
+          <Key>
+            <PropertyRef Name="sugestao" />
+            <PropertyRef Name="ingrediente" />
+          </Key>
+          <Property Name="sugestao" Type="int" Nullable="false" />
+          <Property Name="ingrediente" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sugestao_Produto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="45" />
+          <Property Name="data" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="regime" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="utilizador" Type="int" Nullable="false" />
+          <Property Name="Sugestão_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Utilizador">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="244" Nullable="false" />
+          <Property Name="imagem" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="sugestoes" Type="int" Nullable="false" />
+          <Property Name="denuncias" Type="int" Nullable="false" />
+          <Property Name="suspensao" Type="datetime" />
+          <Property Name="penalidade" Type="int" Nullable="false" />
+          <Property Name="regime" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Utilizador_Ingrediente">
+          <Key>
+            <PropertyRef Name="utilizador" />
+            <PropertyRef Name="ingrediente" />
+          </Key>
+          <Property Name="utilizador" Type="int" Nullable="false" />
+          <Property Name="ingrediente" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Avaliacao_Produto">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
+          <End Role="Avaliacao" Type="Self.Avaliacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Avaliacao">
+              <PropertyRef Name="produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Avaliacao_Utilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+          <End Role="Avaliacao" Type="Self.Avaliacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Avaliacao">
+              <PropertyRef Name="utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Galeria_Estabelecimento">
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1" />
+          <End Role="Galeria" Type="Self.Galeria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estabelecimento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Galeria">
+              <PropertyRef Name="estabelecimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Horario_Estabelecimento">
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1" />
+          <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estabelecimento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Horario">
+              <PropertyRef Name="estabelecimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Produto_Estabelecimento">
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1" />
+          <End Role="Produto" Type="Self.Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estabelecimento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="estabelecimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Produto_Ingrediente_Ingrediente">
+          <End Role="Ingrediente" Type="Self.Ingrediente" Multiplicity="1" />
+          <End Role="Produto_Ingrediente" Type="Self.Produto_Ingrediente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingrediente">
+              <PropertyRef Name="nome" />
+            </Principal>
+            <Dependent Role="Produto_Ingrediente">
+              <PropertyRef Name="ingrediente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Produto_Ingrediente_Produto">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
+          <End Role="Produto_Ingrediente" Type="Self.Produto_Ingrediente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Produto_Ingrediente">
+              <PropertyRef Name="produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Produto_Regime">
+          <End Role="Regime" Type="Self.Regime" Multiplicity="1" />
+          <End Role="Produto" Type="Self.Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regime">
+              <PropertyRef Name="nome" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="regime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Estabelecimento_Estabelecimento">
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1" />
+          <End Role="Sugestao_Estabelecimento" Type="Self.Sugestao_Estabelecimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estabelecimento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sugestao_Estabelecimento">
+              <PropertyRef Name="estabelecimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Estabelecimento_Sugestão">
+          <End Role="Sugestão" Type="Self.Sugestão" Multiplicity="1" />
+          <End Role="Sugestao_Estabelecimento" Type="Self.Sugestao_Estabelecimento" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sugestão">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sugestao_Estabelecimento">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Estabelecimento_Utilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+          <End Role="Sugestao_Estabelecimento" Type="Self.Sugestao_Estabelecimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sugestao_Estabelecimento">
+              <PropertyRef Name="utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Ingrediente_Ingrediente">
+          <End Role="Ingrediente" Type="Self.Ingrediente" Multiplicity="1" />
+          <End Role="Sugestao_Ingrediente" Type="Self.Sugestao_Ingrediente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingrediente">
+              <PropertyRef Name="nome" />
+            </Principal>
+            <Dependent Role="Sugestao_Ingrediente">
+              <PropertyRef Name="ingrediente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Produto_Produto">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
+          <End Role="Sugestao_Produto" Type="Self.Sugestao_Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sugestao_Produto">
+              <PropertyRef Name="Sugestão_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Produto_Regime">
+          <End Role="Regime" Type="Self.Regime" Multiplicity="1" />
+          <End Role="Sugestao_Produto" Type="Self.Sugestao_Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regime">
+              <PropertyRef Name="nome" />
+            </Principal>
+            <Dependent Role="Sugestao_Produto">
+              <PropertyRef Name="regime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Produto_Sugestão">
+          <End Role="Sugestão" Type="Self.Sugestão" Multiplicity="1" />
+          <End Role="Sugestao_Produto" Type="Self.Sugestao_Produto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sugestão">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sugestao_Produto">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Produto_Utilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+          <End Role="Sugestao_Produto" Type="Self.Sugestao_Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sugestao_Produto">
+              <PropertyRef Name="utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Utilizador_Ingrediente_Ingrediente">
+          <End Role="Ingrediente" Type="Self.Ingrediente" Multiplicity="1" />
+          <End Role="Utilizador_Ingrediente" Type="Self.Utilizador_Ingrediente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingrediente">
+              <PropertyRef Name="nome" />
+            </Principal>
+            <Dependent Role="Utilizador_Ingrediente">
+              <PropertyRef Name="ingrediente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Utilizador_Ingrediente_Utilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+          <End Role="Utilizador_Ingrediente" Type="Self.Utilizador_Ingrediente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Utilizador_Ingrediente">
+              <PropertyRef Name="utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Utilizador_Regime">
+          <End Role="Regime" Type="Self.Regime" Multiplicity="1" />
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regime">
+              <PropertyRef Name="nome" />
+            </Principal>
+            <Dependent Role="Utilizador">
+              <PropertyRef Name="regime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ambrosium_bdModelStoreContainer">
+          <EntitySet Name="Avaliacao" EntityType="Self.Avaliacao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estabelecimento" EntityType="Self.Estabelecimento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Galeria" EntityType="Self.Galeria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Horario" EntityType="Self.Horario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingrediente" EntityType="Self.Ingrediente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produto" EntityType="Self.Produto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produto_Ingrediente" EntityType="Self.Produto_Ingrediente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Regime" EntityType="Self.Regime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sugestão" EntityType="Self.Sugestão" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sugestao_Estabelecimento" EntityType="Self.Sugestao_Estabelecimento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sugestao_Ingrediente" EntityType="Self.Sugestao_Ingrediente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sugestao_Produto" EntityType="Self.Sugestao_Produto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilizador" EntityType="Self.Utilizador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilizador_Ingrediente" EntityType="Self.Utilizador_Ingrediente" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_Avaliacao_Produto" Association="Self.fk_Avaliacao_Produto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="Avaliacao" EntitySet="Avaliacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Avaliacao_Utilizador" Association="Self.fk_Avaliacao_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Avaliacao" EntitySet="Avaliacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Galeria_Estabelecimento" Association="Self.fk_Galeria_Estabelecimento">
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+            <End Role="Galeria" EntitySet="Galeria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Horario_Estabelecimento" Association="Self.fk_Horario_Estabelecimento">
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+            <End Role="Horario" EntitySet="Horario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Produto_Estabelecimento" Association="Self.fk_Produto_Estabelecimento">
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Produto_Ingrediente_Ingrediente" Association="Self.fk_Produto_Ingrediente_Ingrediente">
+            <End Role="Ingrediente" EntitySet="Ingrediente" />
+            <End Role="Produto_Ingrediente" EntitySet="Produto_Ingrediente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Produto_Ingrediente_Produto" Association="Self.fk_Produto_Ingrediente_Produto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="Produto_Ingrediente" EntitySet="Produto_Ingrediente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Produto_Regime" Association="Self.fk_Produto_Regime">
+            <End Role="Regime" EntitySet="Regime" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Estabelecimento_Estabelecimento" Association="Self.fk_Sugestao_Estabelecimento_Estabelecimento">
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+            <End Role="Sugestao_Estabelecimento" EntitySet="Sugestao_Estabelecimento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Estabelecimento_Sugestão" Association="Self.fk_Sugestao_Estabelecimento_Sugestão">
+            <End Role="Sugestão" EntitySet="Sugestão" />
+            <End Role="Sugestao_Estabelecimento" EntitySet="Sugestao_Estabelecimento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Estabelecimento_Utilizador" Association="Self.fk_Sugestao_Estabelecimento_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Sugestao_Estabelecimento" EntitySet="Sugestao_Estabelecimento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Ingrediente_Ingrediente" Association="Self.fk_Sugestao_Ingrediente_Ingrediente">
+            <End Role="Ingrediente" EntitySet="Ingrediente" />
+            <End Role="Sugestao_Ingrediente" EntitySet="Sugestao_Ingrediente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Produto_Produto" Association="Self.fk_Sugestao_Produto_Produto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="Sugestao_Produto" EntitySet="Sugestao_Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Produto_Regime" Association="Self.fk_Sugestao_Produto_Regime">
+            <End Role="Regime" EntitySet="Regime" />
+            <End Role="Sugestao_Produto" EntitySet="Sugestao_Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Produto_Sugestão" Association="Self.fk_Sugestao_Produto_Sugestão">
+            <End Role="Sugestão" EntitySet="Sugestão" />
+            <End Role="Sugestao_Produto" EntitySet="Sugestao_Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Produto_Utilizador" Association="Self.fk_Sugestao_Produto_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Sugestao_Produto" EntitySet="Sugestao_Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Utilizador_Ingrediente_Ingrediente" Association="Self.fk_Utilizador_Ingrediente_Ingrediente">
+            <End Role="Ingrediente" EntitySet="Ingrediente" />
+            <End Role="Utilizador_Ingrediente" EntitySet="Utilizador_Ingrediente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Utilizador_Ingrediente_Utilizador" Association="Self.fk_Utilizador_Ingrediente_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Utilizador_Ingrediente" EntitySet="Utilizador_Ingrediente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Utilizador_Regime" Association="Self.fk_Utilizador_Regime">
+            <End Role="Regime" EntitySet="Regime" />
+            <End Role="Utilizador" EntitySet="Utilizador" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ambrosium_bdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Avaliacao">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="rating" Type="Int32" Nullable="false" />
+          <Property Name="comentario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="data" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="produto" Type="Int32" Nullable="false" />
+          <Property Name="utilizador" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Produto1" Relationship="Self.fk_Avaliacao_Produto" FromRole="Avaliacao" ToRole="Produto" />
+          <NavigationProperty Name="Utilizador1" Relationship="Self.fk_Avaliacao_Utilizador" FromRole="Avaliacao" ToRole="Utilizador" />
+        </EntityType>
+        <EntityType Name="Estabelecimento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="telefone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="rating" Type="Double" />
+          <Property Name="localizacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagem" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ativo" Type="Byte" Nullable="false" />
+          <Property Name="sugestoes" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Galeria" Relationship="Self.fk_Galeria_Estabelecimento" FromRole="Estabelecimento" ToRole="Galeria" />
+          <NavigationProperty Name="Horario" Relationship="Self.fk_Horario_Estabelecimento" FromRole="Estabelecimento" ToRole="Horario" />
+          <NavigationProperty Name="Produto" Relationship="Self.fk_Produto_Estabelecimento" FromRole="Estabelecimento" ToRole="Produto" />
+          <NavigationProperty Name="Sugestao_Estabelecimento" Relationship="Self.fk_Sugestao_Estabelecimento_Estabelecimento" FromRole="Estabelecimento" ToRole="Sugestao_Estabelecimento" />
+        </EntityType>
+        <EntityType Name="Galeria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="path" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estabelecimento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Estabelecimento1" Relationship="Self.fk_Galeria_Estabelecimento" FromRole="Galeria" ToRole="Estabelecimento" />
+        </EntityType>
+        <EntityType Name="Horario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="dia" Type="Int32" Nullable="false" />
+          <Property Name="estabelecimento" Type="Int32" Nullable="false" />
+          <Property Name="abertura" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="fecho" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="abertura2" Type="Time" Precision="7" />
+          <Property Name="fecho2" Type="Time" Precision="7" />
+          <NavigationProperty Name="Estabelecimento1" Relationship="Self.fk_Horario_Estabelecimento" FromRole="Horario" ToRole="Estabelecimento" />
+        </EntityType>
+        <EntityType Name="Ingrediente">
+          <Key>
+            <PropertyRef Name="nome" />
+          </Key>
+          <Property Name="nome" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sugestao_Ingrediente" Relationship="Self.fk_Sugestao_Ingrediente_Ingrediente" FromRole="Ingrediente" ToRole="Sugestao_Ingrediente" />
+          <NavigationProperty Name="Produto" Relationship="Self.Produto_Ingrediente" FromRole="Ingrediente" ToRole="Produto" />
+          <NavigationProperty Name="Utilizador" Relationship="Self.Utilizador_Ingrediente" FromRole="Ingrediente" ToRole="Utilizador" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagem" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estabelecimento" Type="Int32" Nullable="false" />
+          <Property Name="regime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ativo" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Avaliacao" Relationship="Self.fk_Avaliacao_Produto" FromRole="Produto" ToRole="Avaliacao" />
+          <NavigationProperty Name="Estabelecimento1" Relationship="Self.fk_Produto_Estabelecimento" FromRole="Produto" ToRole="Estabelecimento" />
+          <NavigationProperty Name="Regime1" Relationship="Self.fk_Produto_Regime" FromRole="Produto" ToRole="Regime" />
+          <NavigationProperty Name="Sugestao_Produto" Relationship="Self.fk_Sugestao_Produto_Produto" FromRole="Produto" ToRole="Sugestao_Produto" />
+          <NavigationProperty Name="Ingrediente" Relationship="Self.Produto_Ingrediente" FromRole="Produto" ToRole="Ingrediente" />
+        </EntityType>
+        <EntityType Name="Regime">
+          <Key>
+            <PropertyRef Name="nome" />
+          </Key>
+          <Property Name="nome" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Produto" Relationship="Self.fk_Produto_Regime" FromRole="Regime" ToRole="Produto" />
+          <NavigationProperty Name="Sugestao_Produto" Relationship="Self.fk_Sugestao_Produto_Regime" FromRole="Regime" ToRole="Sugestao_Produto" />
+          <NavigationProperty Name="Utilizador" Relationship="Self.fk_Utilizador_Regime" FromRole="Regime" ToRole="Utilizador" />
+        </EntityType>
+        <EntityType Name="Sugestão">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sugestao_Estabelecimento" Relationship="Self.fk_Sugestao_Estabelecimento_Sugestão" FromRole="Sugestão" ToRole="Sugestao_Estabelecimento" />
+          <NavigationProperty Name="Sugestao_Produto" Relationship="Self.fk_Sugestao_Produto_Sugestão" FromRole="Sugestão" ToRole="Sugestao_Produto" />
+        </EntityType>
+        <EntityType Name="Sugestao_Estabelecimento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="telefone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="data" Type="DateTime" Precision="7" />
+          <Property Name="utilizador" Type="Int32" Nullable="false" />
+          <Property Name="estabelecimento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Estabelecimento1" Relationship="Self.fk_Sugestao_Estabelecimento_Estabelecimento" FromRole="Sugestao_Estabelecimento" ToRole="Estabelecimento" />
+          <NavigationProperty Name="Sugestão" Relationship="Self.fk_Sugestao_Estabelecimento_Sugestão" FromRole="Sugestao_Estabelecimento" ToRole="Sugestão" />
+          <NavigationProperty Name="Utilizador1" Relationship="Self.fk_Sugestao_Estabelecimento_Utilizador" FromRole="Sugestao_Estabelecimento" ToRole="Utilizador" />
+        </EntityType>
+        <EntityType Name="Sugestao_Ingrediente">
+          <Key>
+            <PropertyRef Name="sugestao" />
+            <PropertyRef Name="ingrediente" />
+          </Key>
+          <Property Name="sugestao" Type="Int32" Nullable="false" />
+          <Property Name="ingrediente" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Ingrediente1" Relationship="Self.fk_Sugestao_Ingrediente_Ingrediente" FromRole="Sugestao_Ingrediente" ToRole="Ingrediente" />
+        </EntityType>
+        <EntityType Name="Sugestao_Produto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="data" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="regime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="utilizador" Type="Int32" Nullable="false" />
+          <Property Name="Sugestão_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Produto" Relationship="Self.fk_Sugestao_Produto_Produto" FromRole="Sugestao_Produto" ToRole="Produto" />
+          <NavigationProperty Name="Regime1" Relationship="Self.fk_Sugestao_Produto_Regime" FromRole="Sugestao_Produto" ToRole="Regime" />
+          <NavigationProperty Name="Sugestão" Relationship="Self.fk_Sugestao_Produto_Sugestão" FromRole="Sugestao_Produto" ToRole="Sugestão" />
+          <NavigationProperty Name="Utilizador1" Relationship="Self.fk_Sugestao_Produto_Utilizador" FromRole="Sugestao_Produto" ToRole="Utilizador" />
+        </EntityType>
+        <EntityType Name="Utilizador">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="244" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagem" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sugestoes" Type="Int32" Nullable="false" />
+          <Property Name="denuncias" Type="Int32" Nullable="false" />
+          <Property Name="suspensao" Type="DateTime" Precision="3" />
+          <Property Name="penalidade" Type="Int32" Nullable="false" />
+          <Property Name="regime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Avaliacao" Relationship="Self.fk_Avaliacao_Utilizador" FromRole="Utilizador" ToRole="Avaliacao" />
+          <NavigationProperty Name="Regime1" Relationship="Self.fk_Utilizador_Regime" FromRole="Utilizador" ToRole="Regime" />
+          <NavigationProperty Name="Sugestao_Estabelecimento" Relationship="Self.fk_Sugestao_Estabelecimento_Utilizador" FromRole="Utilizador" ToRole="Sugestao_Estabelecimento" />
+          <NavigationProperty Name="Sugestao_Produto" Relationship="Self.fk_Sugestao_Produto_Utilizador" FromRole="Utilizador" ToRole="Sugestao_Produto" />
+          <NavigationProperty Name="Ingrediente" Relationship="Self.Utilizador_Ingrediente" FromRole="Utilizador" ToRole="Ingrediente" />
+        </EntityType>
+        <Association Name="fk_Avaliacao_Produto">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
+          <End Role="Avaliacao" Type="Self.Avaliacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Avaliacao">
+              <PropertyRef Name="produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Avaliacao_Utilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+          <End Role="Avaliacao" Type="Self.Avaliacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Avaliacao">
+              <PropertyRef Name="utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Galeria_Estabelecimento">
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1" />
+          <End Role="Galeria" Type="Self.Galeria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estabelecimento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Galeria">
+              <PropertyRef Name="estabelecimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Horario_Estabelecimento">
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1" />
+          <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estabelecimento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Horario">
+              <PropertyRef Name="estabelecimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Produto_Estabelecimento">
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1" />
+          <End Role="Produto" Type="Self.Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estabelecimento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="estabelecimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Estabelecimento_Estabelecimento">
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="1" />
+          <End Role="Sugestao_Estabelecimento" Type="Self.Sugestao_Estabelecimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estabelecimento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sugestao_Estabelecimento">
+              <PropertyRef Name="estabelecimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Ingrediente_Ingrediente">
+          <End Role="Ingrediente" Type="Self.Ingrediente" Multiplicity="1" />
+          <End Role="Sugestao_Ingrediente" Type="Self.Sugestao_Ingrediente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingrediente">
+              <PropertyRef Name="nome" />
+            </Principal>
+            <Dependent Role="Sugestao_Ingrediente">
+              <PropertyRef Name="ingrediente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Produto_Regime">
+          <End Role="Regime" Type="Self.Regime" Multiplicity="1" />
+          <End Role="Produto" Type="Self.Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regime">
+              <PropertyRef Name="nome" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="regime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Produto_Produto">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
+          <End Role="Sugestao_Produto" Type="Self.Sugestao_Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sugestao_Produto">
+              <PropertyRef Name="Sugestão_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Produto_Regime">
+          <End Role="Regime" Type="Self.Regime" Multiplicity="1" />
+          <End Role="Sugestao_Produto" Type="Self.Sugestao_Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regime">
+              <PropertyRef Name="nome" />
+            </Principal>
+            <Dependent Role="Sugestao_Produto">
+              <PropertyRef Name="regime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Utilizador_Regime">
+          <End Role="Regime" Type="Self.Regime" Multiplicity="1" />
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regime">
+              <PropertyRef Name="nome" />
+            </Principal>
+            <Dependent Role="Utilizador">
+              <PropertyRef Name="regime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Estabelecimento_Sugestão">
+          <End Role="Sugestão" Type="Self.Sugestão" Multiplicity="1" />
+          <End Role="Sugestao_Estabelecimento" Type="Self.Sugestao_Estabelecimento" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sugestão">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sugestao_Estabelecimento">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Produto_Sugestão">
+          <End Role="Sugestão" Type="Self.Sugestão" Multiplicity="1" />
+          <End Role="Sugestao_Produto" Type="Self.Sugestao_Produto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sugestão">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sugestao_Produto">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Estabelecimento_Utilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+          <End Role="Sugestao_Estabelecimento" Type="Self.Sugestao_Estabelecimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sugestao_Estabelecimento">
+              <PropertyRef Name="utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sugestao_Produto_Utilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="1" />
+          <End Role="Sugestao_Produto" Type="Self.Sugestao_Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sugestao_Produto">
+              <PropertyRef Name="utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Produto_Ingrediente">
+          <End Role="Ingrediente" Type="Self.Ingrediente" Multiplicity="*" />
+          <End Role="Produto" Type="Self.Produto" Multiplicity="*" />
+        </Association>
+        <Association Name="Utilizador_Ingrediente">
+          <End Role="Ingrediente" Type="Self.Ingrediente" Multiplicity="*" />
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ambrosium_bdEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Avaliacao" EntityType="Self.Avaliacao" />
+          <EntitySet Name="Estabelecimento" EntityType="Self.Estabelecimento" />
+          <EntitySet Name="Galeria" EntityType="Self.Galeria" />
+          <EntitySet Name="Horario" EntityType="Self.Horario" />
+          <EntitySet Name="Ingrediente" EntityType="Self.Ingrediente" />
+          <EntitySet Name="Produto" EntityType="Self.Produto" />
+          <EntitySet Name="Regime" EntityType="Self.Regime" />
+          <EntitySet Name="Sugestão" EntityType="Self.Sugestão" />
+          <EntitySet Name="Sugestao_Estabelecimento" EntityType="Self.Sugestao_Estabelecimento" />
+          <EntitySet Name="Sugestao_Ingrediente" EntityType="Self.Sugestao_Ingrediente" />
+          <EntitySet Name="Sugestao_Produto" EntityType="Self.Sugestao_Produto" />
+          <EntitySet Name="Utilizador" EntityType="Self.Utilizador" />
+          <AssociationSet Name="fk_Avaliacao_Produto" Association="Self.fk_Avaliacao_Produto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="Avaliacao" EntitySet="Avaliacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Avaliacao_Utilizador" Association="Self.fk_Avaliacao_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Avaliacao" EntitySet="Avaliacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Galeria_Estabelecimento" Association="Self.fk_Galeria_Estabelecimento">
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+            <End Role="Galeria" EntitySet="Galeria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Horario_Estabelecimento" Association="Self.fk_Horario_Estabelecimento">
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+            <End Role="Horario" EntitySet="Horario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Produto_Estabelecimento" Association="Self.fk_Produto_Estabelecimento">
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Estabelecimento_Estabelecimento" Association="Self.fk_Sugestao_Estabelecimento_Estabelecimento">
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+            <End Role="Sugestao_Estabelecimento" EntitySet="Sugestao_Estabelecimento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Ingrediente_Ingrediente" Association="Self.fk_Sugestao_Ingrediente_Ingrediente">
+            <End Role="Ingrediente" EntitySet="Ingrediente" />
+            <End Role="Sugestao_Ingrediente" EntitySet="Sugestao_Ingrediente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Produto_Regime" Association="Self.fk_Produto_Regime">
+            <End Role="Regime" EntitySet="Regime" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Produto_Produto" Association="Self.fk_Sugestao_Produto_Produto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="Sugestao_Produto" EntitySet="Sugestao_Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Produto_Regime" Association="Self.fk_Sugestao_Produto_Regime">
+            <End Role="Regime" EntitySet="Regime" />
+            <End Role="Sugestao_Produto" EntitySet="Sugestao_Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Utilizador_Regime" Association="Self.fk_Utilizador_Regime">
+            <End Role="Regime" EntitySet="Regime" />
+            <End Role="Utilizador" EntitySet="Utilizador" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Estabelecimento_Sugestão" Association="Self.fk_Sugestao_Estabelecimento_Sugestão">
+            <End Role="Sugestão" EntitySet="Sugestão" />
+            <End Role="Sugestao_Estabelecimento" EntitySet="Sugestao_Estabelecimento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Produto_Sugestão" Association="Self.fk_Sugestao_Produto_Sugestão">
+            <End Role="Sugestão" EntitySet="Sugestão" />
+            <End Role="Sugestao_Produto" EntitySet="Sugestao_Produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Estabelecimento_Utilizador" Association="Self.fk_Sugestao_Estabelecimento_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Sugestao_Estabelecimento" EntitySet="Sugestao_Estabelecimento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sugestao_Produto_Utilizador" Association="Self.fk_Sugestao_Produto_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Sugestao_Produto" EntitySet="Sugestao_Produto" />
+          </AssociationSet>
+          <AssociationSet Name="Produto_Ingrediente" Association="Self.Produto_Ingrediente">
+            <End Role="Ingrediente" EntitySet="Ingrediente" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          <AssociationSet Name="Utilizador_Ingrediente" Association="Self.Utilizador_Ingrediente">
+            <End Role="Ingrediente" EntitySet="Ingrediente" />
+            <End Role="Utilizador" EntitySet="Utilizador" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ambrosium_bdModelStoreContainer" CdmEntityContainer="ambrosium_bdEntities">
+          <EntitySetMapping Name="Avaliacao">
+            <EntityTypeMapping TypeName="ambrosium_bdModel.Avaliacao">
+              <MappingFragment StoreEntitySet="Avaliacao">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="comentario" ColumnName="comentario" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="produto" ColumnName="produto" />
+                <ScalarProperty Name="utilizador" ColumnName="utilizador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estabelecimento">
+            <EntityTypeMapping TypeName="ambrosium_bdModel.Estabelecimento">
+              <MappingFragment StoreEntitySet="Estabelecimento">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="localizacao" ColumnName="localizacao" />
+                <ScalarProperty Name="imagem" ColumnName="imagem" />
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="sugestoes" ColumnName="sugestoes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Galeria">
+            <EntityTypeMapping TypeName="ambrosium_bdModel.Galeria">
+              <MappingFragment StoreEntitySet="Galeria">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="estabelecimento" ColumnName="estabelecimento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Horario">
+            <EntityTypeMapping TypeName="ambrosium_bdModel.Horario">
+              <MappingFragment StoreEntitySet="Horario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dia" ColumnName="dia" />
+                <ScalarProperty Name="estabelecimento" ColumnName="estabelecimento" />
+                <ScalarProperty Name="abertura" ColumnName="abertura" />
+                <ScalarProperty Name="fecho" ColumnName="fecho" />
+                <ScalarProperty Name="abertura2" ColumnName="abertura2" />
+                <ScalarProperty Name="fecho2" ColumnName="fecho2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingrediente">
+            <EntityTypeMapping TypeName="ambrosium_bdModel.Ingrediente">
+              <MappingFragment StoreEntitySet="Ingrediente">
+                <ScalarProperty Name="nome" ColumnName="nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produto">
+            <EntityTypeMapping TypeName="ambrosium_bdModel.Produto">
+              <MappingFragment StoreEntitySet="Produto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="imagem" ColumnName="imagem" />
+                <ScalarProperty Name="estabelecimento" ColumnName="estabelecimento" />
+                <ScalarProperty Name="regime" ColumnName="regime" />
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regime">
+            <EntityTypeMapping TypeName="ambrosium_bdModel.Regime">
+              <MappingFragment StoreEntitySet="Regime">
+                <ScalarProperty Name="nome" ColumnName="nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sugestão">
+            <EntityTypeMapping TypeName="ambrosium_bdModel.Sugestão">
+              <MappingFragment StoreEntitySet="Sugestão">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sugestao_Estabelecimento">
+            <EntityTypeMapping TypeName="ambrosium_bdModel.Sugestao_Estabelecimento">
+              <MappingFragment StoreEntitySet="Sugestao_Estabelecimento">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="utilizador" ColumnName="utilizador" />
+                <ScalarProperty Name="estabelecimento" ColumnName="estabelecimento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sugestao_Ingrediente">
+            <EntityTypeMapping TypeName="ambrosium_bdModel.Sugestao_Ingrediente">
+              <MappingFragment StoreEntitySet="Sugestao_Ingrediente">
+                <ScalarProperty Name="sugestao" ColumnName="sugestao" />
+                <ScalarProperty Name="ingrediente" ColumnName="ingrediente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sugestao_Produto">
+            <EntityTypeMapping TypeName="ambrosium_bdModel.Sugestao_Produto">
+              <MappingFragment StoreEntitySet="Sugestao_Produto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="regime" ColumnName="regime" />
+                <ScalarProperty Name="utilizador" ColumnName="utilizador" />
+                <ScalarProperty Name="Sugestão_id" ColumnName="Sugestão_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilizador">
+            <EntityTypeMapping TypeName="ambrosium_bdModel.Utilizador">
+              <MappingFragment StoreEntitySet="Utilizador">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="imagem" ColumnName="imagem" />
+                <ScalarProperty Name="sugestoes" ColumnName="sugestoes" />
+                <ScalarProperty Name="denuncias" ColumnName="denuncias" />
+                <ScalarProperty Name="suspensao" ColumnName="suspensao" />
+                <ScalarProperty Name="penalidade" ColumnName="penalidade" />
+                <ScalarProperty Name="regime" ColumnName="regime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Produto_Ingrediente" TypeName="ambrosium_bdModel.Produto_Ingrediente" StoreEntitySet="Produto_Ingrediente">
+            <EndProperty Name="Ingrediente">
+              <ScalarProperty Name="nome" ColumnName="ingrediente" />
+            </EndProperty>
+            <EndProperty Name="Produto">
+              <ScalarProperty Name="id" ColumnName="produto" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Utilizador_Ingrediente" TypeName="ambrosium_bdModel.Utilizador_Ingrediente" StoreEntitySet="Utilizador_Ingrediente">
+            <EndProperty Name="Ingrediente">
+              <ScalarProperty Name="nome" ColumnName="ingrediente" />
+            </EndProperty>
+            <EndProperty Name="Utilizador">
+              <ScalarProperty Name="id" ColumnName="utilizador" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
