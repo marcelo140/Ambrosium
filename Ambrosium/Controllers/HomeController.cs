@@ -24,6 +24,7 @@ namespace Ambrosium.Controllers
         [HttpPost]
         public ActionResult Search(string origin, string search)
         {
+            ViewBag.origin = origin;
             List<Estabelecimento> es = db.Estabelecimento.ToList();
             List<Produto> nearby = new List<Produto>();
             
