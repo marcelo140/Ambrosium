@@ -268,6 +268,8 @@
     <Content Include="Views\Sugestao_Produto\Create.cshtml" />
     <Content Include="Views\Sugestao_Produto\Edit.cshtml" />
     <Content Include="Views\Sugestao_Produto\Index.cshtml" />
+    <Content Include="Views\Estabelecimentos\Menus.cshtml" />
+    <Content Include="Views\Estabelecimentos\Maria.cshtml" />
     <None Include="Views\Utilizadors\Estabelecimentos.cshtml" />
     <None Include="Views\Estabelecimentos\Galeria.cshtml" />
     <None Include="Views\Utilizadors\Historico.cshtml" />
@@ -292,9 +294,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Estabelecimentos\Create.cshtml" />
     <Content Include="Views\Estabelecimentos\Delete.cshtml" />
-    <Content Include="Views\Estabelecimentos\Details.cshtml" />
     <Content Include="Views\Estabelecimentos\Edit.cshtml" />
-    <Content Include="Views\Estabelecimentos\Index.cshtml" />
+    <Content Include="Views\Estabelecimentos\Details.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Produtos\Create.cshtml" />
     <Content Include="Views\Produtos\Delete.cshtml" />

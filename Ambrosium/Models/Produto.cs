@@ -37,5 +37,20 @@ namespace Ambrosium.Models
         public virtual ICollection<Sugestao_Produto> Sugestao_Produto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ingrediente> Ingrediente { get; set; }
+
+        public decimal AverageRating()
+        {
+            float sum =0, length=0;
+
+            foreach(Avaliacao a in Avaliacao)
+            {
+                sum += a.rating;
+                length++;
+            }
+
+            if (length == 0) return 0;
+
+            return (decimal) (sum / length);
+        }
     }
 }

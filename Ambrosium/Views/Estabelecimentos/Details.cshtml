@@ -1,0 +1,85 @@
+﻿@model Ambrosium.Models.Estabelecimento
+
+@{
+    ViewBag.Title = "Ambrosium | " + Model.nome;
+}
+<!--Navbar -->
+
+	<div class="navbar">
+		<div class="navbar-logo col-sm-2" >
+			<div class ="nav-circle">
+				<img class="navbar-img" alt="logo" src="~/Content/images/icon.png"/>
+			</div>
+		</div>
+
+		<div class="navbar-container">
+	  		<a href="~/Home">Home</a>
+	  		<a href="~/Home/Registar">Register</a>
+	  		<a href="../login/index.html">Login</a>
+	  		
+	  	</div>
+	</div>
+
+
+<!-- Main -->
+
+	<div class="col-sm-12">
+		<div class="col-sm-12 profile-title-container">
+			Ambrosium
+		</div>
+
+	</div>
+
+	<div class="col-md-12 profile-sections-container">
+		<a href="#">
+			<div class="col-md-offset-2 col-md-2 profile-section">
+				Restaurante
+			</div>
+		</a>
+		<a href="~/Estabelecimentos/Menus/@Model.id">
+			<div class="col-md-offset-1 col-md-2 profile-section">
+				Menus
+			</div>
+		</a>
+		<a href="~/Estabelecimentos/Galeria/@Model.id">
+			<div class="col-md-offset-1 col-md-2 profile-section">
+				Galeria
+			</div>
+		</a>
+	</div>
+
+
+	<div class="col-md-12">
+		<div class="col-md-offset-1 col-sm-8 name-container">
+				@Model.nome
+		</div>
+		<div class="col-md-5 col-md-offset-1">
+			<div class="col-md-12">
+				<div class="col-sm-12 restaurant-desc">
+				    @Model.descricao
+				</div>
+				<div class="col-sm-12">
+					<input id="transcript" type="text" class="restaurant-critic" placeholder="Fale nos da sua experiencia" required>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-offset-2 col-md-4">
+			<!-- <div class="rest-dist">
+                <input id="dist" type="hidden" value="0,0" />
+				Distancia : Longe
+			</div>-->
+			<div class="rest-class">
+				Rating: 
+                @{
+                    decimal d = (decimal) Model.rating;
+                    @d.ToString("0.00");
+                }
+				<i class="fa fa-star" aria-hidden="true"></i>
+			</div>
+			<div>
+				<img class="rest-map" src="~/Content/images/icon.png"/>
+			</div>
+		</div>
+	
+
+	</div>
