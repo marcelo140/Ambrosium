@@ -151,6 +151,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EstabelecimentosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Sugestao_ProdutoController.cs" />
+    <Compile Include="Controllers\UtilizadorsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -202,6 +204,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\addSugestao.css" />
     <Content Include="Content\css\estableciments.css" />
     <Content Include="Content\css\footer.css" />
     <Content Include="Content\css\history.css" />
@@ -213,6 +216,7 @@
     <Content Include="Content\css\register.css" />
     <Content Include="Content\css\restaurant.css" />
     <Content Include="Content\css\search.css" />
+    <Content Include="Content\css\tabelaSugestoes.css" />
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -291,14 +295,17 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <None Include="Views\----Estabelecimentos\Index.cshtml" />
+    <Content Include="Views\Sugestao_Produto\Create.cshtml" />
+    <Content Include="Views\Sugestao_Produto\Edit.cshtml" />
+    <Content Include="Views\Sugestao_Produto\Index.cshtml" />
+    <None Include="Views\Utilizadors\Estabelecimentos.cshtml" />
     <None Include="Views\Estabelecimentos\Galeria.cshtml" />
-    <Content Include="Views\Historico\index.html" />
+    <None Include="Views\Utilizadors\Historico.cshtml" />
     <None Include="Views\Estabelecimentos\Menu.cshtml" />
-    <Content Include="Views\Perfil\index.html" />
+    <None Include="Views\Utilizadors\Index.cshtml" />
     <None Include="Views\Home\Registar.cshtml" />
     <None Include="Views\Estabelecimentos\Index.cshtml" />
-    <Content Include="Views\Resultados\index.html" />
+    <None Include="Views\Home\Resultados.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -311,15 +318,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Old_Estabelecimentos\Create.cshtml" />
-    <Content Include="Views\Old_Estabelecimentos\Delete.cshtml" />
-    <Content Include="Views\Old_Estabelecimentos\Details.cshtml" />
-    <Content Include="Views\Old_Estabelecimentos\Edit.cshtml" />
-    <Content Include="Views\Old_Estabelecimentos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Menu\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
