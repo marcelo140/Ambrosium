@@ -12,15 +12,16 @@
 	height: 400px;
 }
 
-.text-recon{
-	background: transparent;
-	opacity: 1;
-	font-size: 30px;
-	outline:0;
-	height: 30px;
-	text-indent: 20px;
-	margin-top: 20px !important;
-	border:none !important;
+.text-recon {
+    background: transparent;
+    opacity: 1;
+    font-size: 30px;
+    outline: 0;
+    height: 30px;
+    text-indent: 20px;
+    margin-top: 20px !important;
+    border: none !important;
+    padding: 0 !important;
 }
 
 .input-border{
