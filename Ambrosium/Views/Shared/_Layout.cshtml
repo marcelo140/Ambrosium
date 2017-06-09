@@ -17,28 +17,116 @@
 
 </head>
 <body class="color1">
+    <!--Navbar -->
+
+    <div class="navbar">
+        <div class="navbar-logo col-sm-2">
+            <div class="nav-circle">
+                <img class="navbar-img" alt="logo" src="~/Content/images/icon.png" />
+            </div>
+        </div>
+
+        <div class="navbar-container">
+            <a href="~/Home">Home</a>
+            <a href="~/Home/Register">Register</a>
+            <a href="../login/index.html">Login</a>
+
+        </div>
+    </div>
+
+    
     @RenderBody()
 
         
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-<!-- Footer -->
-    <footer class="col-xs-12">
-        <div class="footer-container col-md-offset-3 col-md-4">
-            <h3>Contactos</h3>
-            <a> autoDeligths@di.uminho.pt</a>
-            </br>
-            <a>Onde nos encontrar</a>
-        </div>
-        <div class="footer-container col-md-4 rigth">
 
-            <h3>Links uteis </h3>
-            <a> FAQ</a>
-            </br>
-            <a>Equipa</a>
-        </div>
+    <script>
+        function startDictation() {
 
-    </footer>
-    </body>
+            if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+                var recognition = new webkitSpeechRecognition();
+
+                recognition.continuous = false;
+                recognition.interimResults = false;
+
+                recognition.lang = "pt-PT";
+                recognition.start();
+
+                recognition.onresult = function (e) {
+                    document.getElementById('transcript').value
+                        = e.results[0][0].transcript;
+                    recognition.stop();
+                    document.getElementById('labnol').submit();
+                };
+
+                recognition.onerror = function (e) {
+                    recognition.stop();
+                }
+
+            }
+        }
+    </script>
+
+
+
+
+
+    <div id="id01" class="modal">
+
+        <form class="modal-content animate" action="/action_page.php">
+
+            <div class="container col-sm-12 login-container">
+                <p class="login-title col-sm-2">Login</p>
+
+                <button type="button" class="col-sm-1" style="float: right;background-color: transparent;padding: 0px;" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                    <i class="fa fa-times fa-3x" aria-hidden="true"></i>
+                </button>
+
+            </div>
+            <div class="container col-sm-12 login-container">
+                <div class="col-md-5">
+                    <label class="login-text"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+                </div>
+            </div>
+            <div class="col-sm-12 login-container">
+                <div class="col-md-5">
+                    <label class="login-text"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+                <div class="col-sm-12 login-container">
+                    <button class="col-sm-2 text-but" type="submit">Login</button>
+                    <button type="button" class="col-sm-2  text-but" style="margin-left: 10px;background-color: red;" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+
+                    <p class="login-text col-sm-12"><input type="checkbox" checked="checked"> Remember me</p>
+                    <p class="col-sm-12"><span class="login-text psw">Forgot <a href="#">password?</a></span></p>
+                </div>
+            </div>
+        </form>
+
+        <script src="~/Scripts/geolocation.js"></script>
+        <script>getLocation();</script>
+
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        <!-- Footer -->
+        <footer class="col-xs-12">
+            <div class="footer-container col-md-offset-3 col-md-4">
+                <h3>Contactos</h3>
+                <a> autoDeligths@di.uminho.pt</a>
+                </br>
+                <a>Onde nos encontrar</a>
+            </div>
+            <div class="footer-container col-md-4 rigth">
+
+                <h3>Links uteis </h3>
+                <a> FAQ</a>
+                </br>
+                <a>Equipa</a>
+            </div>
+
+        </footer>
+</body>
 </html>
