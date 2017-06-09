@@ -151,7 +151,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EstabelecimentosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProdutosController.cs" />
+    <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="Controllers\Sugestao_ProdutoController.cs" />
     <Compile Include="Controllers\UtilizadorsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -207,19 +207,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\css\addSugestao.css" />
-    <Content Include="Content\css\estableciments.css" />
+    <Content Include="Content\css\Estabelecimentos\galeria.css" />
+    <Content Include="Content\css\Estabelecimentos\restaurant.css" />
     <Content Include="Content\css\footer.css" />
-    <Content Include="Content\css\history.css" />
     <Content Include="Content\css\home.css" />
+    <Content Include="Content\css\Home\register.css" />
+    <Content Include="Content\css\Home\search.css" />
     <Content Include="Content\css\master.css" />
     <Content Include="Content\css\modal.css" />
     <Content Include="Content\css\navbar.css" />
-    <Content Include="Content\css\profile.css" />
-    <Content Include="Content\css\register.css" />
-    <Content Include="Content\css\restaurant.css" />
-    <Content Include="Content\css\search.css" />
-    <Content Include="Content\css\tabelaSugestoes.css" />
+    <Content Include="Content\css\Produtos\produto.css" />
+    <Content Include="Content\css\Sugestoes\addSugestao.css" />
+    <Content Include="Content\css\Sugestoes\tabelaSugestoes.css" />
+    <Content Include="Content\css\Utilizador\estableciments.css" />
+    <Content Include="Content\css\Utilizador\history.css" />
+    <Content Include="Content\css\Utilizador\profile.css" />
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -269,15 +271,14 @@
     <Content Include="Views\Sugestao_Produto\Edit.cshtml" />
     <Content Include="Views\Sugestao_Produto\Index.cshtml" />
     <Content Include="Views\Estabelecimentos\Menus.cshtml" />
-    <Content Include="Views\Estabelecimentos\Maria.cshtml" />
+    <Content Include="Views\Produtoes\Index.cshtml" />
+    <Content Include="Views\Produtoes\Review.cshtml" />
+    <Content Include="Views\Estabelecimentos\EditarEstabelecimento.cshtml" />
     <None Include="Views\Utilizadors\Estabelecimentos.cshtml" />
     <None Include="Views\Estabelecimentos\Galeria.cshtml" />
     <None Include="Views\Utilizadors\Historico.cshtml" />
-    <None Include="Views\Estabelecimentos\Menu.cshtml" />
     <None Include="Views\Utilizadors\Index.cshtml" />
     <None Include="Views\Home\Registar.cshtml" />
-    <None Include="Views\Estabelecimentos\Index.cshtml" />
-    <None Include="Views\Home\Resultados.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -289,19 +290,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Estabelecimentos\Create.cshtml" />
-    <Content Include="Views\Estabelecimentos\Delete.cshtml" />
-    <Content Include="Views\Estabelecimentos\Edit.cshtml" />
     <Content Include="Views\Estabelecimentos\Details.cshtml" />
-    <Content Include="Views\Home\Search.cshtml" />
-    <Content Include="Views\Produtos\Create.cshtml" />
-    <Content Include="Views\Produtos\Delete.cshtml" />
-    <Content Include="Views\Produtos\Details.cshtml" />
-    <Content Include="Views\Produtos\Edit.cshtml" />
-    <Content Include="Views\Produtos\Index.cshtml" />
+    <Content Include="Views\Home\Resultados.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

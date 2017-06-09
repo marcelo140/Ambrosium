@@ -22,4 +22,6 @@ INSERT INTO Produto VALUES ('Francesinha do Porto', '', 8, 'Sem regime especial'
 INSERT INTO Produto VALUES ('Meia Francesinha', '', 9, 'Sem regime especial', 1);
 INSERT INTO Produto VALUES ('Francesinha Vegetariana', '', 9, 'Vegetariano', 1);
 
+select * from Produto;
+
 GO

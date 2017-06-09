@@ -16,27 +16,6 @@ namespace Ambrosium.Controllers
     {
         private ambrosium_bdEntities2 db = new ambrosium_bdEntities2();
 
-        // GET: Estabelecimentos
-        public ActionResult Index()
-        {
-            return View(db.Estabelecimento.ToList());
-        }
-
-        // GET: Estabelecimentos/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Estabelecimento estabelecimento = db.Estabelecimento.Find(id);
-            if (estabelecimento == null)
-            {
-                return HttpNotFound();
-            }
-            return View(estabelecimento);
-        }
-
         //GET: Estabelecimentos/Menus/5
         public ActionResult Menus(int? id)
         {
@@ -79,7 +58,7 @@ namespace Ambrosium.Controllers
             return View(e.Galeria);
         }
 
-        public ActionResult Menu()
+        public ActionResult EditarEstabelecimento()
         {
             ViewBag.Message = "Your application description page.";
 
@@ -129,6 +108,21 @@ namespace Ambrosium.Controllers
                 return RedirectToAction("Index");
             }
 
+            return View(estabelecimento);
+        }
+
+        // GET: Estabelecimentos/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Estabelecimento estabelecimento = db.Estabelecimento.Find(id);
+            if (estabelecimento == null)
+            {
+                return HttpNotFound();
+            }
             return View(estabelecimento);
         }
 

@@ -21,15 +21,8 @@ namespace Ambrosium.Controllers
             return View();
         }
 
-        public ActionResult Resultados()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
         [HttpPost]
-        public ActionResult Search(string origin, string search)
+        public ActionResult Resultados(string origin, string search)
         {
             ViewBag.origin = origin;
             List<Estabelecimento> es = db.Estabelecimento.ToList();
