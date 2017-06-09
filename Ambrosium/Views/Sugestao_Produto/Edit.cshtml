@@ -4,70 +4,83 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Sugestao_Produto</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.id)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.nome, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.data, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.data, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.data, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.regime, "regime", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("regime", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.regime, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.utilizador, "utilizador", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("utilizador", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.utilizador, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.produto, "produto", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("produto", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.produto, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+<div class="navbar">
+    <div class="navbar-logo col-sm-2">
+        <div class="nav-circle">
+            <img class="navbar-img" alt="logo" src="~/Content/images/icon.png" />
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <div class="navbar-container">
+        <a href="~/Home">Home</a>
+        <a href="~/Home/Registar">Register</a>
+        <a onclick="document.getElementById('id01').style.display='block'">Login</a>
+
+    </div>
 </div>
+
+<div class="col-sm-offset-1 col-sm-10 add-sugestao-container">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-horizontal">
+            <h4>Adicionar Produto</h4>
+            <hr />
+
+            <div class="col-sm-6">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="add-photo-text">
+                    Adicionar foto
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-md-6">
+                        <button class="pic-updator">Inserir nova imagem</button>
+                    </div>
+
+                    <select class=" col-md-6 regime-dropdown">
+                        <option class="drop-text" value="None">Regime</option>
+                        <option class="drop-text" value="Qualidade">Vegetariano</option>
+                        <option class="drop-text" value="Classificação">Carnivero</option>
+                        <option class="drop-text" value="Distancia">Omnivero</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-8">
+                    <div class="input-group input-preference">
+                        <input id="transcript" type="text" class="text-recon" placeholder="Ingredientes" required>
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary submit-preference" type="submit" href="">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-12 name-container">
+                    Ingredientes Registados:
+                    <div class="preferences-box">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <button class="pic-updator" type="submit">Aceitar</button>
+            </div>
+            <div class="col-sm-2">
+                <button class="pic-updator" type="submit">Cancelar</button>
+            </div>
+        </div>
+    }
+</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
