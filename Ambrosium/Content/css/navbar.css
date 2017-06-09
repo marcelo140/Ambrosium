@@ -1,5 +1,4 @@
 .navbar {
-    background-color: #333;
     position: fixed; 
     top: 0; 
     width: 101%;
@@ -16,7 +15,6 @@
     text-decoration: none;
     font-family: 'Lato';
     font-size: 20px;
-    color: #f2f2f2;
 }
 
 .navbar a:hover{
@@ -32,13 +30,13 @@
     height: 20px;
 }
 
-.nav-circle{
-     background-color: #026AA7; 
-     height: 80px; 
-     border-radius: 50%;
-     width: 80px; 
-     margin-left: 50px; 
-     margin-top: 15px;
+.nav-circle {
+    background-color: #D50000;
+    height: 80px;
+    border-radius: 50%;
+    width: 80px;
+    margin-left: 50px;
+    margin-top: 15px;
 }
 
 .navbar-img{

@@ -3,27 +3,28 @@ body{
 }
 
 
-.color1{
-	background-color: #333;
-	color:#f2f2f2;
+.color1 {
+    background-color: #EFEBE9;
+    color: black;
 }
 
-.color2{
-	background-color: #2A2A2A;
-	color:#f2f2f2;
+.color2 {
+    background-color: #BCAAA4;
+    color: black;
 }
 
-.color3{
-	background-color: #333;
-	color: #fff;	
+.color3 {
+    background-color: #5D4037;
+    color: #fff;
 }
 
-.color4{
-	
+.color4 {
+    background-color: #5D4037;
 }
 
 .color5{
-	
+		background-color: #333;
+	    color:#333;
 }
 
 

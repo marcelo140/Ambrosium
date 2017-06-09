@@ -168,22 +168,16 @@ input:-ms-input-placeholder {
 	font-size: 30px;
 }
 
-.circle2{
-	background-color: #00E012;
+.circle2 {
+    background-color: #C51162;
 }
 
-.circle1{
-	background-color: #ED0007;
+.circle1 {
+    background-color: #00C853;
 }
 
-.circle3{
-	background-color: #1600E0;
-}
-
-
-.login-container{
-	background-color: #333;
-	color:#333;
+.circle3 {
+    background-color: #6200EA;
 }
 
 .login-title{
