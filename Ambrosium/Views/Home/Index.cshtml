@@ -2,6 +2,9 @@
     ViewBag.Title = "Home Page";
 }
 
+<script src="~/Scripts/geolocation.js"></script>
+<script>getLocation()</script>
+
 <!--Navbar -->
 
 <div class="navbar">
@@ -57,13 +60,14 @@
 
 <!-- Banner text -->
 
-<form action="~/Home/Resultados">
+<form action="/Home/Search" method="post">
     <div class="col-md-12 home-text">
         <div class="banner-title-container">
             <p>Ambrosium </p>
             <div class="input-banner col-sm-offset-3 col-sm-6">
                 <div class="input-group input-border">
-                    <input id="transcript" type="text" class="text-recon" placeholder="O que vamos experimentar hoje?" required>
+                    <input id="org" name="origin" type="hidden" value="0,0"/>
+                    <input id="transcript" name="search" type="text" class="text-recon" placeholder="O que vamos experimentar hoje?" required>
                     <span class="input-group-btn">
                         <button class="btn btn-secondary submit-recon" type="submit" href="~/Home/Resultados">
                             <i class="fa fa-search" aria-hidden="true"></i>

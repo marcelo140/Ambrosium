@@ -47,6 +47,11 @@
 	border-bottom: 1px solid #000;
 }
 
+.search-subtitle {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+}
 
 .search-title{
 	font-size: 30px;

@@ -66,21 +66,9 @@ namespace Ambrosium.Controllers
         }
 
         // GET: Sugestao_Produto/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Sugestao_Produto sugestao_Produto = db.Sugestao_Produto.Find(id);
-            if (sugestao_Produto == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.produto = new SelectList(db.Produto, "id", "nome", sugestao_Produto.produto);
-            ViewBag.regime = new SelectList(db.Regime, "nome", "nome", sugestao_Produto.regime);
-            ViewBag.utilizador = new SelectList(db.Utilizador, "id", "nome", sugestao_Produto.utilizador);
-            return View(sugestao_Produto);
+            return View();
         }
 
         // POST: Sugestao_Produto/Edit/5
