@@ -1,4 +1,29 @@
-﻿<!-- Main -->
+﻿@model IEnumerable<Ambrosium.Models.Galeria>
+
+@{
+    ViewBag.Title = "Ambrosium | Galeria";
+}
+
+
+<!--Navbar -->
+
+	<div class="navbar">
+		<div class="navbar-logo col-sm-2" >
+			<div class ="nav-circle">
+				<img class="navbar-img" alt="logo" src="~/Content/images/icon.png"/>
+			</div>
+		</div>
+
+		<div class="navbar-container">
+	  		<a href="../home/index.html">Home</a>
+	  		<a href="#Register">Register</a>
+	  		<a href="../login/index.html">Login</a>
+	  		
+	  	</div>
+	</div>
+
+
+<!-- Main -->
 
 	<div class="col-sm-12">
 		<div class="col-sm-12 profile-title-container">
@@ -8,17 +33,17 @@
 	</div>
 
 	<div class="col-md-12 profile-sections-container">
-		<a href="~/Estabelecimentos">
+		<a href="~/Estabelecimentos/Details/@ViewBag.Estabelecimento.id">
 			<div class="col-md-offset-2 col-md-2 profile-section">
 				Restaurante
 			</div>
 		</a>
-		<a href="~/Estabelecimentos/Menu">
+		<a href="~/Estabelecimentos/Menus/@ViewBag.Estabelecimento.id">
 			<div class="col-md-offset-1 col-md-2 profile-section">
 				Menus
 			</div>
 		</a>
-		<a href="~/Estabelecimentos/Galeria">
+		<a href="#">
 			<div class="col-md-offset-1 col-md-2 profile-section">
 				Galeria
 			</div>

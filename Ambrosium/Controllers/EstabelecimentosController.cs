@@ -50,7 +50,9 @@ namespace Ambrosium.Controllers
                 return HttpNotFound();
             }
 
-            return View(e);
+            ViewBag.Estabelecimento = e;
+
+            return View(e.Produto);
         }
 
 
@@ -60,11 +62,21 @@ namespace Ambrosium.Controllers
             return View();
         }
 
-        public ActionResult Galeria()
+        public ActionResult Galeria(int? id)
         {
-            ViewBag.Message = "Your application description page.";
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Estabelecimento e = db.Estabelecimento.Find(id);
+            if (e == null)
+            {
+                return HttpNotFound();
+            }
 
-            return View();
+            ViewBag.Estabelecimento = e;
+
+            return View(e.Galeria);
         }
 
         public ActionResult Menu()

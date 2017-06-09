@@ -28,6 +28,27 @@ namespace Ambrosium.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Search(string origin, string search)
+        {
+            ViewBag.origin = origin;
+            List<Estabelecimento> es = db.Estabelecimento.ToList();
+            List<Produto> nearby = new List<Produto>();
+
+            foreach (Estabelecimento e in es)
+            {
+                if (e.GetDistance(origin) < 5000)
+                {
+                    List<Produto> ps = e.getProdutos(search);
+
+                    foreach (Produto p in ps)
+                        nearby.Add(p);
+                }
+            }
+
+            return View(nearby);
+        }
+
         public ActionResult Registar()
         {
             ViewBag.Message = "Your contact page.";
