@@ -10,7 +10,7 @@
     <div class="col-sm-12 login color4">
         <div class=" login-box col-sm-4 col-sm-offset-4">
             <div class="login-title">
-                Register
+                Registar
             </div>
 
             <div class="login-field">
@@ -18,7 +18,7 @@
                     Username
                 </div>
                 <div class="col-sm-offset-2 col-sm-8">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
+                    <input class="input-form color2" type="text" placeholder="Username" name="uname" required>
                 </div>
             </div>
             <div class="login-field">
@@ -26,7 +26,7 @@
                     Password
                 </div>
                 <div class="col-sm-offset-2 col-sm-8">
-                    <input class="input-form color1" type="password" placeholder="Password" name="uname" required>
+                    <input class="input-form color2" type="password" placeholder="Password" name="uname" required>
                 </div>
             </div>
             <div class="login-field">
@@ -34,7 +34,7 @@
                     Confirm Password
                 </div>
                 <div class="col-sm-offset-2 col-sm-8">
-                    <input class="input-form color1" type="password" placeholder="Password" name="uname" required>
+                    <input class="input-form color2" type="password" placeholder="Password" name="uname" required>
                 </div>
             </div>
             <div class="login-field">
@@ -42,15 +42,23 @@
                     Picture
                 </div>
                 <div class="col-sm-6">
-                    <input type="button" class="submit-button" value="Choose File">
+                    <input type="file" id="picFile" class="submit-button" value="Choose File">
                 </div>
             </div>
 
 
             <div class="col-sm-12">
-                <input type="button" class="login-button" value="Login">
+                <input type="button" onclick="uploadFile()" class="login-button" value="Registar">
             </div>
 
 
         </div>
     </div>
+
+
+<script>
+function uploadFile() {
+    var x = document.getElementById("picFile");
+    x.disabled = true;
+}
+</script>

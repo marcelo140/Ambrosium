@@ -12,9 +12,9 @@
     display: block;
     text-align: center;
     padding: 1% 2%;
-    text-decoration: none;
     font-family: 'Lato';
-    font-size: 20px;
+    font-size:20px;
+    text-decoration:none;
 }
 
 .navbar a:hover{
@@ -31,7 +31,7 @@
 }
 
 .nav-circle {
-    background-color: #D50000;
+    background-color: #C1AF73;
     height: 80px;
     border-radius: 50%;
     width: 80px;
