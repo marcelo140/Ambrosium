@@ -151,6 +151,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EstabelecimentosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="Controllers\Sugestao_ProdutoController.cs" />
     <Compile Include="Controllers\UtilizadorsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -214,6 +215,7 @@
     <Content Include="Content\css\master.css" />
     <Content Include="Content\css\modal.css" />
     <Content Include="Content\css\navbar.css" />
+    <Content Include="Content\css\produto.css" />
     <Content Include="Content\css\profile.css" />
     <Content Include="Content\css\register.css" />
     <Content Include="Content\css\restaurant.css" />
@@ -267,6 +269,7 @@
     <Content Include="Views\Sugestao_Produto\Create.cshtml" />
     <Content Include="Views\Sugestao_Produto\Edit.cshtml" />
     <Content Include="Views\Sugestao_Produto\Index.cshtml" />
+    <Content Include="Views\Produtoes\Index.cshtml" />
     <None Include="Views\Utilizadors\Estabelecimentos.cshtml" />
     <None Include="Views\Estabelecimentos\Galeria.cshtml" />
     <None Include="Views\Utilizadors\Historico.cshtml" />
@@ -295,11 +298,7 @@
     <Content Include="Views\Estabelecimentos\Edit.cshtml" />
     <Content Include="Views\Estabelecimentos\Index.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
-    <Content Include="Views\Produtos\Create.cshtml" />
-    <Content Include="Views\Produtos\Delete.cshtml" />
-    <Content Include="Views\Produtos\Details.cshtml" />
-    <Content Include="Views\Produtos\Edit.cshtml" />
-    <Content Include="Views\Produtos\Index.cshtml" />
+    <Content Include="Views\Produtoes\Review.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

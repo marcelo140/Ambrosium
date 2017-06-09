@@ -1,0 +1,107 @@
+﻿<!--Navbar -->
+
+<div class="navbar">
+    <div class="navbar-logo col-sm-2">
+        <div class="nav-circle">
+            <img class="navbar-img" alt="logo" src="~/Content/images/icon.png" />
+        </div>
+    </div>
+
+    <div class="navbar-container">
+        <a href="~/Home">Home</a>
+        <a href="~/Home/Registar">Register</a>
+        <a onclick="document.getElementById('id01').style.display='block'">Login</a>
+
+    </div>
+</div>
+
+<div class="col-sm-12">
+    <div class="col-sm-12 product-title-container">
+       Ambrosium 
+    </div>
+    <div class="col-sm-12 product-text-container">
+       Taberna Belga
+    </div>
+    <div class="col-md-12 profile-sections-container">
+        <a href="~/Produtoes">
+            <div class="col-md-offset-2 col-md-2 profile-section">
+                Produto
+            </div>
+        </a>
+        <a href="~/Produtoes/Review">
+            <div class="col-md-offset-1 col-md-2 profile-section">
+                Review
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-offset-1 col-md-6">
+        <div class="product-name-container">
+            Francesinha Especial
+        </div>
+
+        <div class="product-rating-container">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+        <div class="product-desc-container col-md-10">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ante magna, faucibus et erat eu, laoreet placerat mi. Vestibulum sed malesuada lacus. Praesent vel pretium purus. Fusce eget facilisis nibh.
+        </div>
+        <div class="product-desc-container col-md-10">
+            <i class="fa fa-facebook fa-2x product-icon" aria-hidden="true"></i>
+            <i class="fa fa-twitter fa-2x product-icon" aria-hidden="true"></i>
+            <i onclick="document.getElementById('id02').style.display='block'"  class="fa fa-edit fa-2x product-icon" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="col-sm-5">
+        <div>
+            <img class="rest-map" src="~/Content/images/icon.png" />
+        </div>
+        <div class="product-rating-container">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>
+
+<div id="id02" class="modal">
+
+    <form class="modal-content animate" action="/action_page.php">
+
+        <div class="container col-sm-12 login-container">
+            <p class="login-title col-sm-2">Rate Me</p>
+
+            <button type="button" class="col-sm-1" style="float: right;background-color: transparent;padding: 0px;" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">
+                <i class="fa fa-times fa-3x" aria-hidden="true"></i>
+            </button>
+
+        </div>
+        <div class="container col-sm-12 login-container">
+            <div class="col-md-5">
+                <label class="login-text"><b>
+                    <div class="product-rating-container">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                </b></label>
+            </div>
+        </div>
+        <div class="col-sm-12 login-container">
+            <div class="col-md-5">
+                <label class="login-text"><b>Comentario</b></label>
+                <input type="text" placeholder="Enter Password" name="psw" required>
+            </div>
+            <div class="col-sm-12 login-container">
+                <button class="col-sm-2 text-but" type="submit">Submit</button>
+                <button type="button" class="col-sm-2  text-but" style="margin-left: 10px;background-color: red;" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+        </div>
+    </form>
