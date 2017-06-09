@@ -36,20 +36,22 @@
 </div>
 
 
-<div class="col-md-12">
+<div style="color:black;margin-top:50px;" class="col-md-12">
     @foreach (var item in Model)
     {
     
         <div class="search-result col-sm-offset-2 col-sm-8">
             <div class="search-div col-sm-4">
-                <div class="search-title">
+                <div style="color:black;" class="search-title">
                     @Html.DisplayFor(modelItem => item.nome)
                 </div>
-                <div class="search-desc col-sm-offset-1">
+                <div style="color:black;" class="search-desc col-sm-offset-1">
                     <b>Ingredientes:</b>
+                   
                     @foreach (var ingrediente in item.Ingrediente)
                     {
                         @ingrediente.nome
+                       
                     }
                 </div>
             </div>
