@@ -311,11 +311,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Old_Estabelecimentos\Create.cshtml" />
-    <Content Include="Views\Old_Estabelecimentos\Delete.cshtml" />
-    <Content Include="Views\Old_Estabelecimentos\Details.cshtml" />
-    <Content Include="Views\Old_Estabelecimentos\Edit.cshtml" />
-    <Content Include="Views\Old_Estabelecimentos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
