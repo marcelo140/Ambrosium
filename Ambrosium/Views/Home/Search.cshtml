@@ -5,6 +5,10 @@
 }
 
 
+<script src="~/Scripts/geolocation.js"></script>
+<script>getLocation()</script>
+
+
 <div class="navbar">
     <div class="navbar-logo col-sm-2">
         <div class="nav-circle">
@@ -24,12 +28,13 @@
 <!-- Main -->
 
 <div class="search-container col-md-10">
-    <form action="../results/index.html">
+    <form action="/Home/Search" method="post">
         <div class="col-sm-offset-1 col-sm-5 search-text">
             <div class="banner-title-container">
                 <div class="input-banner col-sm-offset-2">
                     <div class="input-group input-border">
-                        <input id="transcript" type="text" class="text-recon" placeholder="Procurar" required>
+                        <input id="org" name="origin" type="hidden" value="0,0" />
+                        <input id="transcript" name="search" type="text" class="text-recon" placeholder="Procurar" required>
                         <span class="input-group-btn">
                             <button class="btn btn-secondary submit-recon" type="submit" href="~/Home/Resultados">
                                 <i class="fa fa-search" aria-hidden="true"></i>

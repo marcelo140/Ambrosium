@@ -135,7 +135,8 @@ namespace Ambrosium.Models
             List<Produto> ret = new List<Models.Produto>();
 
             foreach (Produto p in Produto)
-                if (p.nome.Contains(product)) ret.Add(p);
+                if (p.nome.ToLower().Contains(product.ToLower()))
+                    ret.Add(p);
 
             return ret;
         }
