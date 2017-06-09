@@ -224,5 +224,18 @@ function startDictation() {
             </div>
         </div>
     </form>
-</div>
 
+<script src="~/Scripts/geolocation.js"></script>
+<script>getLocation();</script>
+<div class="jumbotron" onload="getLocation()">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+    {
+        <input id="org" type="hidden" name="origin" value="0,0">
+        <input type="text" name="search" />
+        <input type="submit" value="Search!" /> <br/>
+    }
+
+</div>
