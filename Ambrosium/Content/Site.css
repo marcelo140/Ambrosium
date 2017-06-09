@@ -15,11 +15,12 @@
 @import url(css/modal.css);
 @import url(css/navbar.css);
 @import url(css/Home/register.css);
-@import url(css/Home/register.css);
+@import url(css/Home/search.css);
 @import url(css/Utilizador/profile.css);
 @import url(css/Utilizador/history.css);
 @import url(css/Utilizador/estableciments.css);
 @import url(css/Estabelecimentos/restaurant.css);
+@import url(css/Estabelecimentos/galeria.css);
 @import url(css/Sugestoes/tabelaSugestoes.css);
 @import url(css/Sugestoes/addSugestao.css);
 @import url(css/Produtos/produto.css);

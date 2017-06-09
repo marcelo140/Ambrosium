@@ -207,6 +207,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\Estabelecimentos\galeria.css" />
     <Content Include="Content\css\Sugestoes\addSugestao.css" />
     <Content Include="Content\css\Utilizador\estableciments.css" />
     <Content Include="Content\css\footer.css" />
@@ -270,13 +271,13 @@
     <Content Include="Views\Sugestao_Produto\Edit.cshtml" />
     <Content Include="Views\Sugestao_Produto\Index.cshtml" />
     <Content Include="Views\Produtoes\Index.cshtml" />
+    <Content Include="Views\Estabelecimentos\Index.cshtml" />
     <None Include="Views\Utilizadors\Estabelecimentos.cshtml" />
     <None Include="Views\Estabelecimentos\Galeria.cshtml" />
     <None Include="Views\Utilizadors\Historico.cshtml" />
     <None Include="Views\Estabelecimentos\Menu.cshtml" />
     <None Include="Views\Utilizadors\Index.cshtml" />
     <None Include="Views\Home\Registar.cshtml" />
-    <None Include="Views\Estabelecimentos\Index.cshtml" />
     <None Include="Views\Home\Resultados.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -289,15 +290,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Estabelecimentos\Create.cshtml" />
-    <Content Include="Views\Estabelecimentos\Delete.cshtml" />
-    <Content Include="Views\Estabelecimentos\Details.cshtml" />
-    <Content Include="Views\Estabelecimentos\Edit.cshtml" />
-    <Content Include="Views\Estabelecimentos\Index.cshtml" />
-    <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Produtoes\Review.cshtml" />
   </ItemGroup>
   <ItemGroup>
