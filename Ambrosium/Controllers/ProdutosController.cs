@@ -15,14 +15,19 @@ namespace Ambrosium.Controllers
         private ambrosium_bdEntities2 db = new ambrosium_bdEntities2();
 
         // GET: Produtos
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            var produto = db.Produto.Include(p => p.Estabelecimento1).Include(p => p.Regime1);
-            return View(produto.ToList());
+            var estabelecimento = db.Estabelecimento.Find(id);
+            if (estabelecimento == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(estabelecimento.Produto.ToList());
         }
 
         // GET: Produtos/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int idE, int? id)
         {
             if (id == null)
             {
@@ -37,10 +42,13 @@ namespace Ambrosium.Controllers
         }
 
         // GET: Produtos/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.estabelecimento = new SelectList(db.Estabelecimento, "id", "nome");
             ViewBag.regime = new SelectList(db.Regime, "nome", "nome");
+            ViewBag.estabelecimento = db.Estabelecimento.Find(id).nome;
+            if (ViewBag.estabelecimento == null)
+                return HttpNotFound();
+
             return View();
         }
 
@@ -49,16 +57,18 @@ namespace Ambrosium.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nome,imagem,estabelecimento,regime,ativo")] Produto produto)
+        public ActionResult Create(int id, [Bind(Include = "id,nome,imagem,regime")] Produto produto)
         {
             if (ModelState.IsValid)
             {
+                produto.estabelecimento = id;
+                produto.ativo = 1;
                 db.Produto.Add(produto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.estabelecimento = new SelectList(db.Estabelecimento, "id", "nome", produto.estabelecimento);
+            ViewBag.estabelecimento = db.Estabelecimento.Find(id).nome;
             ViewBag.regime = new SelectList(db.Regime, "nome", "nome", produto.regime);
             return View(produto);
         }
@@ -75,7 +85,7 @@ namespace Ambrosium.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.estabelecimento = new SelectList(db.Estabelecimento, "id", "nome", produto.estabelecimento);
+            ViewBag.estabelecimento = db.Estabelecimento.Find(id).nome;
             ViewBag.regime = new SelectList(db.Regime, "nome", "nome", produto.regime);
             return View(produto);
         }
@@ -85,7 +95,7 @@ namespace Ambrosium.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nome,imagem,estabelecimento,regime,ativo")] Produto produto)
+        public ActionResult Edit(int id, [Bind(Include = "id,nome,imagem,estabelecimento,regime,ativo")] Produto produto)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +103,7 @@ namespace Ambrosium.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.estabelecimento = new SelectList(db.Estabelecimento, "id", "nome", produto.estabelecimento);
+            ViewBag.estabelecimento = db.Estabelecimento.Find(id).nome;
             ViewBag.regime = new SelectList(db.Regime, "nome", "nome", produto.regime);
             return View(produto);
         }
