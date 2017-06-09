@@ -43,6 +43,13 @@ namespace Ambrosium.Controllers
             return View();
         }
 
+        public ActionResult Request()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
         public ActionResult Estabelecimentos()
         {
             ViewBag.Message = "Your application description page.";
