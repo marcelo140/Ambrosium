@@ -12,7 +12,7 @@ namespace Ambrosium.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Sugestao_Estabelecimento
+    public partial class Sugestao_Estabelecimento : ISugestao
     {
         public int id { get; set; }
         public string descricao { get; set; }
@@ -23,5 +23,11 @@ namespace Ambrosium.Models
     
         public virtual Estabelecimento Estabelecimento1 { get; set; }
         public virtual Utilizador Utilizador1 { get; set; }
+
+        public void Apply()
+        {
+            Estabelecimento1.descricao = descricao;
+            Estabelecimento1.telefone = telefone;
+        }
     }
 }
