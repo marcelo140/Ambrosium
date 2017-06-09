@@ -2,6 +2,15 @@
     ViewBag.Title = "Home Page";
 }
 
+@{
+    var routes = RouteTable.Routes;
+}
+@foreach (var route in routes)
+{
+    var r = (System.Web.Routing.Route)route;
+    <h4>@r.Url</h4>
+}
+
 <script src="~/Scripts/geolocation.js"></script>
 <script>getLocation()</script>
 
