@@ -11,47 +11,49 @@
 			Ambrosium
 		</div>
 
+        <div class="col-md-offset-1 col-sm-8 name-container">
+            @Model.nome
+        </div>
 	</div>
 
 	<div style="color:black;padding-bottom:50px;margin-bottom:0px;"  class="col-xs-12 profile-sections-container">
-		<a href="#">
-			<div class="col-md-offset-2 col-md-2 profile-section">
-				Restaurante
-			</div>
-		</a>
-		<a href="~/Estabelecimentos/Menus/@Model.id">
-			<div class="col-md-offset-1 col-md-2 profile-section">
-				Menus
-			</div>
-		</a>
-		<a href="~/Estabelecimentos/Galeria/@Model.id">
-			<div class="col-md-offset-1 col-md-2 profile-section">
-				Galeria
-			</div>
-		</a>
-	</div>
+		<div class="col-md-offset-2 col-md-2 profile-section-active">
+			Restaurante
+		</div>
+
+        <div class="col-md-offset-1 col-md-2 profile-section">
+            @Html.ActionLink("Menus", "Menus", new { id = Model.id })
+        </div>
+
+		<div class="col-md-offset-1 col-md-2 profile-section">
+            @Html.ActionLink("Galeria", "Galeria", new { id = Model.id })
+	    </div>
+    </div>
 
 
 	<div style="color:black;" class="col-xs-12">
-		<div class="col-md-offset-1 col-sm-8 name-container">
-				@Model.nome
-		</div>
 		<div class="col-md-5 col-md-offset-1">
+            <h3>Endereço:</h3> @Model.localizacao
+
+            <h3>Telefone:</h3> @Model.telefone
+
+            <h3>Descrição:</h3>
 			<div class="col-md-12">
 				<div class="col-sm-12 restaurant-desc">
-				    @Model.descricao
-                    
+				    @Model.descricao                
                 </div>
-				<div class="col-sm-12">
-					<input style="margin-bottom:50px;" id="transcript" type="text" class="color2 submit-recon" placeholder="Fale nos da sua experiencia" required>
-				</div>
 			</div>
-		</div>
-		<div class="col-md-offset-2 col-md-4">
-			<!-- <div class="rest-dist">
-                <input id="dist" type="hidden" value="0,0" />
-				Distancia : Longe
-			</div>-->
+ 
+            <h3>Horário de funcionamento</h3>
+            <ul>
+                @foreach (var dia in Model.Horario)
+                {
+                <li>@Enum.GetName(typeof(DayOfWeek), @dia.dia):     @dia.abertura-@dia.fecho, @dia.abertura2-@dia.fecho2</li>
+                }
+            </ul>
+        </div>
+		
+        <div class="col-md-offset-2 col-md-4">
 			<div class="rest-class">
 				Rating: 
                 @{
@@ -64,6 +66,4 @@
 				<img style="margin-bottom:50px;" class="rest-map" src="~/Content/images/icon.png"/>
 			</div>
 		</div>
-	
-
 	</div>

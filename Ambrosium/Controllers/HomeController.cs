@@ -22,7 +22,7 @@ namespace Ambrosium.Controllers
         }
 
         [HttpPost]
-        public ActionResult Resultados(string origin, string search)
+        public ActionResult Resultados(string origin, string search, int distance = 5000)
         {
             ViewBag.origin = origin;
             List<Estabelecimento> es = db.Estabelecimento.ToList();
@@ -30,7 +30,7 @@ namespace Ambrosium.Controllers
 
             foreach (Estabelecimento e in es)
             {
-                if (e.GetDistance(origin) < 5000)
+                if (e.GetDistance(origin) < distance)
                 {
                     List<Produto> ps = e.getProdutos(search);
 

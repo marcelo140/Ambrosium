@@ -151,12 +151,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EstabelecimentosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProdutoesController.cs" />
+    <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Controllers\Sugestao_ProdutoController.cs" />
     <Compile Include="Controllers\UtilizadorsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Avaliacao.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -228,6 +229,7 @@
     <Content Include="Content\images\1.jpg" />
     <Content Include="Content\images\2.jpg" />
     <Content Include="Content\images\3.jpg" />
+    <Content Include="Content\images\foods\default.png" />
     <Content Include="Content\images\icon.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -271,9 +273,14 @@
     <Content Include="Views\Sugestao_Produto\Edit.cshtml" />
     <Content Include="Views\Sugestao_Produto\Index.cshtml" />
     <Content Include="Views\Estabelecimentos\Menus.cshtml" />
-    <Content Include="Views\Produtoes\Index.cshtml" />
-    <Content Include="Views\Produtoes\Review.cshtml" />
+    <Content Include="Views\Produtos\Review.cshtml" />
     <Content Include="Views\Estabelecimentos\EditarEstabelecimento.cshtml" />
+    <Content Include="Views\Home\ResultadoPartial.cshtml" />
+    <Content Include="Views\Produtos\Details.cshtml" />
+    <Content Include="Views\Produtos\Create.cshtml" />
+    <Content Include="Views\Produtos\Delete.cshtml" />
+    <Content Include="Views\Produtos\Edit.cshtml" />
+    <Content Include="Views\Produtos\Index.cshtml" />
     <None Include="Views\Utilizadors\Estabelecimentos.cshtml" />
     <None Include="Views\Estabelecimentos\Galeria.cshtml" />
     <None Include="Views\Utilizadors\Historico.cshtml" />

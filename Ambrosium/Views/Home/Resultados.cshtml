@@ -50,41 +50,9 @@
 </div>
 
 
-@foreach (var item in Model)
+@foreach (var produto in Model)
 {
-    <div class="search-result col-sm-offset-2 col-sm-8">
-        <div class="search-div col-sm-4">
-            <a href="~/Estabelecimentos/Details/@item.estabelecimento">
-                <div class="search-title">
-                    @Html.DisplayFor(modelItem => item.Estabelecimento1.nome)
-                </div>
-                <div class="search-subtitle">
-                    @Html.DisplayFor(modelItem => item.nome)
-                </div>
-                <div class="search-desc col-sm-offset-1">
-                    <b>Ingredientes:</b>
-                    @foreach (var ingrediente in item.Ingrediente)
-                {
-                        @Html.DisplayText(ingrediente.nome + ", ")
-                    }
-                </div>
-            </a>
-        </div>
-        <div class="search-div col-sm-4">
-            <div class="search-dist">
-                Distancia: &emsp;  <b> @{ @item.Estabelecimento1.GetDistancePrintable(ViewBag.origin); } </b>
-            </div>
-            <div class="rating col-sm-12">
-                Rating &emsp;
-                
-                @Html.DisplayFor(modelItem => item.Estabelecimento1.rating)
-                <i class="fa fa-star" aria-hidden="true"></i>
-            </div>
-        </div>
-        <div class="search-div col-md-4">
-            <img class="search-pic" src="~/Content/images/pot.jpg" />
-        </div>
-    </div>
+    @Html.Partial("ResultadoPartial", produto)
 }
 
 <script>

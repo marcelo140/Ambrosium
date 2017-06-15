@@ -10,23 +10,43 @@ using Ambrosium.Models;
 
 namespace Ambrosium.Controllers
 {
-    public class ProdutoesController : Controller
+    public class ProdutosController : Controller
     {
         private ambrosium_bdEntities2 db = new ambrosium_bdEntities2();
 
-        // GET: Produtoes
+        // GET: Produtos
         public ActionResult Index()
         {
             var produto = db.Produto.Include(p => p.Estabelecimento1).Include(p => p.Regime1);
             return View(produto.ToList());
         }
 
-       
-       
+        // GET: Produtos/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produto produto = db.Produto.Find(id);
+            if (produto == null)
+            {
+                return HttpNotFound();
+            }
+            return View(produto);
+        }
 
-        // POST: Produtoes/Create
-        // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
-        // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
+        // GET: Produtos/Create
+        public ActionResult Create()
+        {
+            ViewBag.estabelecimento = new SelectList(db.Estabelecimento, "id", "nome");
+            ViewBag.regime = new SelectList(db.Regime, "nome", "nome");
+            return View();
+        }
+
+        // POST: Produtos/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,nome,imagem,estabelecimento,regime,ativo")] Produto produto)
@@ -43,16 +63,26 @@ namespace Ambrosium.Controllers
             return View(produto);
         }
 
-        public ActionResult Review()
+        // GET: Produtos/Edit/5
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produto produto = db.Produto.Find(id);
+            if (produto == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.estabelecimento = new SelectList(db.Estabelecimento, "id", "nome", produto.estabelecimento);
+            ViewBag.regime = new SelectList(db.Regime, "nome", "nome", produto.regime);
+            return View(produto);
         }
 
-        
-
-        // POST: Produtoes/Edit/5
-        // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
-        // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Produtos/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,nome,imagem,estabelecimento,regime,ativo")] Produto produto)
@@ -68,9 +98,22 @@ namespace Ambrosium.Controllers
             return View(produto);
         }
 
-        
+        // GET: Produtos/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produto produto = db.Produto.Find(id);
+            if (produto == null)
+            {
+                return HttpNotFound();
+            }
+            return View(produto);
+        }
 
-        // POST: Produtoes/Delete/5
+        // POST: Produtos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
