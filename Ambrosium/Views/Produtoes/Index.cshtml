@@ -7,7 +7,7 @@
     <div class="col-sm-12 product-text-container">
        Taberna Belga
     </div>
-    <div class="col-md-12 profile-sections-container">
+    <div class="col-xs-12 profile-sections-container">
         <a href="~/Produtoes">
             <div class="col-md-offset-2 col-md-2 profile-section">
                 Produto
@@ -19,7 +19,7 @@
             </div>
         </a>
     </div>
-    <div class="col-sm-offset-1 col-md-6">
+    <div class="col-sm-offset-1 col-md-6  col-xs-12">
         <div style="margin-top:50px;" class="product-name-container">
             Francesinha Especial
         </div>
@@ -31,7 +31,7 @@
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
         </div>
-        <div class="product-desc-container col-md-10">
+        <div class="product-desc-container col-md-10 col-xs-12">
             Francesinha especial da casa, conhecida alem fronteiras.
         </div>
         <div class="product-desc-container col-md-10">
@@ -40,7 +40,7 @@
             <i onclick="document.getElementById('id02').style.display='block'"  class="fa fa-edit fa-2x product-icon" aria-hidden="true"></i>
         </div>
     </div>
-    <div class="col-sm-5">
+    <div class="col-md-5 col-xs-12">
         <div>
             <img class="rest-map" src="~/Content/images/icon.png" />
         </div>
@@ -59,7 +59,7 @@
     <form class="modal-content animate" action="/action_page.php">
 
         <div class="color3 container col-sm-12 login-container">
-            <p class="login-title col-sm-2">Deixe uma avaliação</p>
+            <p class="login-title col-sm-6">Deixe uma avaliação</p>
 
             <button type="button" class="col-sm-1" style="float: right;background-color: transparent;padding: 0px;" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">
                 <i class="fa fa-times fa-3x" aria-hidden="true"></i>
@@ -81,12 +81,13 @@
         </div>
         <div class=" color2 col-sm-12 login-container">
             <div class="col-md-5">
-                <label class="login-text"><b>Comentario</b></label>
-                <input type="text" placeholder="Enter Password" name="psw" required>
+                <label class="login-text col-sm-12"><b>Comentario</b></label>
+                <textarea name="comment" rows="4" cols="60" placeholder="Deixe nos um comentario" required></textarea>
             </div>
             <div class="color2 col-sm-12 login-container">
-                <button class="col-sm-2 text-but" type="submit">Submit</button>
-                <button type="button" class="col-sm-2  text-but" style="margin-left: 10px;background-color: red;" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+                <button class="col-sm-2 text-but-l" type="submit">Submeter</button>
+                <button type="button" class="col-sm-2  text-but-c" style="margin-left: 10px;background-color: red;" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancelar</button>
             </div>
         </div>
     </form>
+    </div>

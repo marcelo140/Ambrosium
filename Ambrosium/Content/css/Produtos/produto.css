@@ -1,6 +1,6 @@
 ﻿.product-title-container {
     margin-top: 100px;
-    margin-left: 100px;
+    padding-left:100px;
     font-size: 30px;
     font-family: 'Oswald';
     margin-bottom: 30px;
@@ -8,7 +8,7 @@
 
 
 .product-text-container {
-    margin-left: 100px;
+    padding-left:100px;
     font-size: 20px;
     font-family: 'Oswald';
     margin-bottom: 30px;
@@ -34,4 +34,11 @@
 
 .product-icon{
     margin:10px;
+}
+
+textarea {
+    min-width: 400px;
+    max-width: 400px;
+    min-height: 150px;
+    max-height: 150px;
 }

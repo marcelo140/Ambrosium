@@ -191,7 +191,16 @@ input:-ms-input-placeholder {
 	color: #fff;
 }
 
-.text-but{
-	font-size: 20px;
-	border-radius: 10px;
+.text-but-l {
+    font-size: 20px;
+    border-radius: 10px;
+    margin-left: 10px;
+    background-color: #4CAF50;
+}
+
+.text-but-c {
+    font-size: 20px;
+    border-radius: 10px;
+    margin-left: 20px;
+    background-color: #D50000;
 }
