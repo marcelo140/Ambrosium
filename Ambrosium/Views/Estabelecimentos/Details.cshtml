@@ -15,17 +15,17 @@
 
 	<div style="color:black;padding-bottom:50px;margin-bottom:0px;"  class="col-xs-12 profile-sections-container">
 		<a href="#">
-			<div class="col-md-offset-2 col-md-2 profile-section">
+			<div class="col-xs-offset-2 col-xs-2 profile-section">
 				Restaurante
 			</div>
 		</a>
 		<a href="~/Estabelecimentos/Menus/@Model.id">
-			<div class="col-md-offset-1 col-md-2 profile-section">
+			<div class="col-xs-offset-1 col-xs-2 profile-section">
 				Menus
 			</div>
 		</a>
 		<a href="~/Estabelecimentos/Galeria/@Model.id">
-			<div class="col-md-offset-1 col-md-2 profile-section">
+			<div class="col-xs-offset-1 col-xs-2 profile-section">
 				Galeria
 			</div>
 		</a>
@@ -33,25 +33,24 @@
 
 
 	<div style="color:black;" class="col-xs-12">
-		<div class="col-md-offset-1 col-sm-8 name-container">
+		<div class="col-xs-offset-1 col-xs-8 name-container">
 				@Model.nome
 		</div>
-		<div class="col-md-5 col-md-offset-1">
+		<div class="col-xs-5 col-xs-offset-1">
 			<div class="col-md-12">
 				<div class="col-sm-12 restaurant-desc">
 				    @Model.descricao
                     
                 </div>
-				<div class="col-sm-12">
-					<input style="margin-bottom:50px;" id="transcript" type="text" class="color2 submit-recon" placeholder="Fale nos da sua experiencia" required>
+				<div class="col-xs-12">
+                    <textarea name="comment" rows="4" cols="60" placeholder="Fale nós da sua experiencia" required></textarea>
 				</div>
+                <div class="col-xs-12">
+                    <button class="col-xs-6 text-but-l" type="submit">Submeter</button>
+                </div>
 			</div>
 		</div>
 		<div class="col-md-offset-2 col-md-4">
-			<!-- <div class="rest-dist">
-                <input id="dist" type="hidden" value="0,0" />
-				Distancia : Longe
-			</div>-->
 			<div class="rest-class">
 				Rating: 
                 @{

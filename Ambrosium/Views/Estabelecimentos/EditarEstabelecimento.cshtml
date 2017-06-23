@@ -8,25 +8,25 @@
 
 
 <div class="col-sm-12 login color4">
-    <div class=" login-box col-sm-6">
+    <div class=" login-box  col-xs-12">
         <div class="login-title">
             Editar restaurante
         </div>
 
         <div class="login-field">
-            <div class=" login-text col-sm-offset-2 col-sm-8">
+            <div class=" login-text col-sm-offset-2 col-sm-8" style="margin-bottom:20px;">
                 Contacto
             </div>
             <div class="col-sm-offset-2 col-sm-8">
-                <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
+                <input class="input-form color2" type="text" placeholder="Contacto" name="uname" required>
             </div>
         </div>
         <div class="login-field">
-            <div class="login-text col-sm-offset-2 col-sm-8">
+            <div class="login-text col-sm-offset-2 col-sm-8" style="margin-bottom:20px;">
                 Descrição
             </div>
-            <div class="col-sm-offset-2 col-sm-8">
-                <input class="input-form color1" type="text" placeholder="Password" name="uname" required>
+            <div class="col-sm-offset-2 col-sm-10">
+                <textarea name="comment" rows="4" class="color2" style="border-radius:10px;" cols="80" placeholder="Descrição do Estabelecimento" required></textarea>
             </div>
         </div>
         <div class="login-field">
@@ -34,200 +34,279 @@
                 Imagem
             </div>
             <div class="col-sm-6">
-                <input type="button" class="submit-button" value="Choose File">
+                <input type="file" id="picFile" class="login-button" value="Choose File">
             </div>
         </div>
 
 
-        <div class="col-sm-12">
+        <div class="login-field col-sm-12">
             <input type="button" class="login-button" value="Submeter">
         </div>
 
 
     </div>
-    <div class=" login-box col-sm-6">
+    <div class=" login-box  col-xs-12">
         <div class="login-title">
             Editar restaurante
         </div>
 
         <div class="login-field">
-            <div class=" login-text col-sm-offset-2 col-sm-10">
-                Username
+            <div class=" login-text col-sm-offset-2 col-sm-10" style="margin:50px;">
+               Defina o Horario
             </div>
-            <div class="col-sm-12">
-                <div class="col-sm-1">
-                    Monday: 
+            <div class="col-sm-12" style="border-bottom:1px solid black;padding-bottom:20px; margin-bottom:20px;">
+                <div class="col-xs-12" style="margin-bottom:20px;font-size:32px;">
+                    Segunda Feira: 
                 </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-            </div>
-            <div class="col-sm-12">
-                <div class="col-sm-1">
-                    Terça:
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
+                <div class="col-md-12">
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Manhã:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Tarde:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-12">
-                <div class="col-sm-1">
-                    Quarta:
+            <div class="col-sm-12"  style="border-bottom:1px solid black;padding-bottom:20px; margin-bottom:20px;">
+                <div class="col-xs-12" style="margin-bottom:20px;font-size:32px;">
+                    Terça Feira:
                 </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-            </div>
-            <div class="col-sm-12">
-                <div class="col-sm-1">
-                    Quinta:
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
+                <div class="col-md-12">
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Manhã:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Tarde:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-12">
-                <div class="col-sm-1">
-                    Sexta:
+            <div class="col-sm-12" style="border-bottom:1px solid black;padding-bottom:20px; margin-bottom:20px;">
+                <div class="col-xs-12" style="margin-bottom:20px;font-size:32px;">
+                    Quarta Feira:
                 </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-            </div>
-            <div class="col-sm-12">
-                <div class="col-sm-1">
-                   Sabado:
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
+                <div class="col-md-12">
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Manhã:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Tarde:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-12">
-                <div class="col-sm-1">
+            <div class="col-sm-12"  style="border-bottom:1px solid black;padding-bottom:20px; margin-bottom:20px;">
+                <div class="col-xs-12" style="margin-bottom:20px;font-size:32px;">
+                    Quinta Feira:
+                </div>
+                <div class="col-md-12">
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Manhã:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Tarde:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12" style="border-bottom:1px solid black;padding-bottom:20px; margin-bottom:20px;">
+                <div class="col-xs-12" style="margin-bottom:20px;font-size:32px;">
+                    Sexta Feira:
+                </div>
+                <div class="col-md-12">
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Manhã:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Tarde:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12" style="border-bottom:1px solid black;padding-bottom:20px; margin-bottom:20px;">
+                <div class="col-xs-12" style="margin-bottom:20px;font-size:32px;">
+                    Sabádo:
+                </div>
+                <div class="col-md-12">
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Manhã:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Tarde:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12" style=" margin-bottom:20px;">
+                <div class="col-xs-12" style="margin-bottom:20px;font-size:32px;">
                     Domingo:
                 </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
-                </div>
-                <div class="col-sm-1">
-                    to
-                </div>
-                <div class="col-sm-2">
-                    <input class="input-form color1" type="text" placeholder="Username" name="uname" required>
+                <div class="col-md-12">
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Manhã:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-xs-2" style="margin-top:10px;font-size:30px;">
+                            Tarde:
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Abertura" name="uname" required>
+                        </div>
+                        <div class="col-sm-1" style="margin-top:10px;font-size:30px;">
+                            até
+                        </div>
+                        <div class="col-sm-4  col-md-2">
+                            <input class="input-form color2" type="text" placeholder="Fecho" name="uname" required>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+<script>
+function uploadFile() {
+    var x = document.getElementById("picFile");
+    x.disabled = true;
+}
+</script>
