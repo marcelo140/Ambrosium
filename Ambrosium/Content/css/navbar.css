@@ -39,6 +39,13 @@
     margin-top: 15px;
 }
 
+
+.xbutton {
+    float: right;
+    background-color: transparent;
+    padding: 0px;
+}
+
 .navbar-img{
     height: 50px; 
     margin-top:12px; 

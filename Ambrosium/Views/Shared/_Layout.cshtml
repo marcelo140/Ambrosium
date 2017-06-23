@@ -16,12 +16,12 @@
 
 
 </head>
-<body class="color1">
+<body class="color1" style="height:100vh;">
     <!--Navbar -->
 
     <div class="navbar color4">
         <div class="navbar-logo col-sm-2">
-            <div class="nav-circle" style="background-color:#C1AF73;">
+            <div class="nav-circle">
                 <img class="navbar-img" alt="logo" src="~/Content/images/icon.png" />
             </div>
         </div>
@@ -78,7 +78,7 @@
             <div class="container col-sm-12 color3">
                 <p class="login-title col-sm-2">Login</p>
 
-                <button type="button" class="col-sm-1" style="float: right;background-color: transparent;padding: 0px;" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                <button type="button" class="col-sm-1 xbutton" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
                     <i class="fa fa-times fa-3x" aria-hidden="true"></i>
                 </button>
 
@@ -95,8 +95,8 @@
                     <input type="password" placeholder="Enter Password" name="psw" required>
                 </div>
                 <div class="col-sm-12 color1">
-                    <button class="col-sm-2 text-but" type="submit">Login</button>
-                    <button type="button" class="col-sm-2  text-but" style="margin-left: 10px;background-color: #D50000;" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
+                    <button class="col-sm-2 text-but-l" type="submit">Login</button>
+                    <button type="button" class="col-sm-2  text-but-c" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
 
                     <p class="col-sm-12"><input type="checkbox" checked="checked"> Remember me</p>
                     <p class="col-sm-12"><span class=" psw">Forgot <a href="#">password?</a></span></p>
